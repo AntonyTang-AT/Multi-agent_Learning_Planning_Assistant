@@ -23,9 +23,6 @@
 | `challenge` | 结构化质疑 |
 | `metacognitive_feedback` | 元认知卡片 |
 | `proactive_intervention` | 主动干预卡片 |
-| `echo` | **调试用回声**（A1；联调 schema，正式业务勿依赖） |
-
-未知 `intent`：HTTP `400`，`detail.code = unknown_intent`，并返回 `supported_intents` 列表。
 
 ## status
 
