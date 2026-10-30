@@ -1,0 +1,42 @@
+{
+  "request": {
+    "request_id": "req_echo_001",
+    "task_id": "task_echo_001",
+    "scenario": "final_review",
+    "intent": "echo",
+    "user_profile": {
+      "user_id": "u_demo",
+      "constraints": { "hard": [], "soft": [] }
+    },
+    "input": { "ping": "pong" },
+    "resource_refs": [],
+    "resource_payload": {},
+    "trace_snapshot": {},
+    "demo": {
+      "force_conflict": false,
+      "force_verify_fail": false,
+      "time_jump_days": 0
+    }
+  },
+  "response_example": {
+    "request_id": "req_echo_001",
+    "task_id": "task_echo_001",
+    "status": "ok",
+    "message": "echo ok",
+    "output": {
+      "echo": { "ping": "pong" },
+      "scenario": "final_review",
+      "demo": {
+        "force_conflict": false,
+        "force_verify_fail": false,
+        "time_jump_days": 0
+      },
+      "resource_refs": []
+    },
+    "blackboard_entries": [],
+    "user_options": [],
+    "evidence_refs": [],
+    "requires_approval": false,
+    "meta": { "agent_version": "0.1.0", "latency_ms": 0 }
+  }
+}
