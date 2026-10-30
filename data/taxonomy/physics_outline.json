@@ -1,0 +1,36 @@
+{
+  "subject": "physics",
+  "title": "大学物理知识点大纲（初稿，按本校开课范围可改）",
+  "nodes": [
+    {
+      "id": "phy.mech",
+      "name": "力学",
+      "children": ["phy.mech.kinematics", "phy.mech.dynamics", "phy.mech.energy"],
+      "prerequisites": []
+    },
+    {
+      "id": "phy.thermo",
+      "name": "热学",
+      "children": [],
+      "prerequisites": []
+    },
+    {
+      "id": "phy.em",
+      "name": "电磁学",
+      "children": ["phy.em.electrostatics", "phy.em.current", "phy.em.magnetism"],
+      "prerequisites": []
+    },
+    {
+      "id": "phy.wave",
+      "name": "振动与波动",
+      "children": [],
+      "prerequisites": ["phy.mech"]
+    },
+    {
+      "id": "phy.optics",
+      "name": "光学",
+      "children": [],
+      "prerequisites": ["phy.wave"]
+    }
+  ]
+}

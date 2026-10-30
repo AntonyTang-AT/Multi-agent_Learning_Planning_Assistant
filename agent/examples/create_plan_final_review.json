@@ -1,0 +1,65 @@
+{
+  "request": {
+    "request_id": "req_demo_001",
+    "task_id": "task_demo_001",
+    "scenario": "final_review",
+    "intent": "create_plan",
+    "user_profile": {
+      "user_id": "u_demo",
+      "constraints": {
+        "hard": ["daily_minutes<=45", "exam_date=2026-01-10", "subject=math"],
+        "soft": []
+      }
+    },
+    "input": {
+      "goal": "期末过线",
+      "days_left": 14
+    },
+    "resource_refs": [
+      { "type": "knowledge", "id": "math.limit", "label": "极限与连续" },
+      { "type": "knowledge", "id": "math.derivative", "label": "导数与微分" }
+    ],
+    "resource_payload": {},
+    "trace_snapshot": {},
+    "demo": { "force_conflict": true, "force_verify_fail": false, "time_jump_days": 0 }
+  },
+  "response_example": {
+    "request_id": "req_demo_001",
+    "task_id": "task_demo_001",
+    "status": "conflict",
+    "message": "计划第3天超出每日45分钟预算",
+    "output": {
+      "plan": {
+        "tasks": [
+          {
+            "day": 1,
+            "action": "复习",
+            "object": "极限定义与运算法则",
+            "minutes": 40,
+            "completion_criteria": "完成3道基础填空",
+            "load": "medium",
+            "knowledge_ids": ["math.limit"]
+          }
+        ]
+      }
+    },
+    "blackboard_entries": [
+      {
+        "entry_id": "bb_demo_001",
+        "type": "conflict",
+        "summary": "第3天超出每日45分钟预算",
+        "severity": "high",
+        "evidence_refs": ["plan#day3", "constraint#daily_minutes"],
+        "status": "open"
+      }
+    ],
+    "user_options": [
+      { "id": "extend_time", "label": "延长每日学习时间" },
+      { "id": "reduce_depth", "label": "降低复习深度" },
+      { "id": "adjust_goal", "label": "调整目标" }
+    ],
+    "evidence_refs": [],
+    "requires_approval": true,
+    "meta": { "agent_version": "0.1.0", "latency_ms": 0 }
+  }
+}

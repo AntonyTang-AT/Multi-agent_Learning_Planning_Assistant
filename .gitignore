@@ -1,0 +1,36 @@
+# 环境与密钥（严禁提交）
+.env
+.env.local
+.env.*.local
+**/secrets.*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+build/
+.npm
+*.log
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# 本地数据与缓存
+backend/data_local/
+*.bak
+.coverage
+htmlcov/

@@ -1,0 +1,36 @@
+{
+  "subject": "math",
+  "title": "高等数学知识点大纲（初稿，按本校课表可改）",
+  "nodes": [
+    {
+      "id": "math.limit",
+      "name": "极限与连续",
+      "children": ["math.limit.def", "math.limit.ops", "math.continuity"],
+      "prerequisites": []
+    },
+    {
+      "id": "math.derivative",
+      "name": "导数与微分",
+      "children": ["math.derivative.def", "math.derivative.apps"],
+      "prerequisites": ["math.limit"]
+    },
+    {
+      "id": "math.integral",
+      "name": "积分及其应用",
+      "children": ["math.integral.indef", "math.integral.def", "math.integral.apps"],
+      "prerequisites": ["math.derivative"]
+    },
+    {
+      "id": "math.ode",
+      "name": "微分方程",
+      "children": [],
+      "prerequisites": ["math.integral"]
+    },
+    {
+      "id": "math.series",
+      "name": "级数",
+      "children": [],
+      "prerequisites": ["math.integral"]
+    }
+  ]
+}

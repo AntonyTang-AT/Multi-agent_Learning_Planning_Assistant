@@ -1,0 +1,40 @@
+{
+  "version": "0.1",
+  "questions": [
+    {
+      "question_id": "math_q_001",
+      "subject": "math",
+      "knowledge_ids": ["math.limit"],
+      "scenario_tags": ["final_review", "catch_up"],
+      "chapter": "极限与连续",
+      "exam_hot": true,
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "求 lim(x→0) sin(x)/x 的值。",
+      "answer": "1",
+      "assumptions": [],
+      "error_tags": ["limit_misuse", "symbol_error"],
+      "verify_hint": { "expr": "limit(sin(x)/x, x, 0)", "expected": "1" },
+      "source": "自编样例",
+      "license_note": "答辩演示用"
+    },
+    {
+      "question_id": "math_q_002",
+      "subject": "math",
+      "knowledge_ids": ["math.derivative"],
+      "scenario_tags": ["catch_up"],
+      "chapter": "导数与微分",
+      "lecture_week": 5,
+      "exam_hot": false,
+      "difficulty": 3,
+      "type": "fill",
+      "stem": "若未特别声明定义域，求 y=√x 在 x=0 处的导数（演示用：依赖单侧/定义域假设）。",
+      "answer": "不存在（或 +∞ 视定义）",
+      "assumptions": [],
+      "error_tags": ["undefined_assumption"],
+      "verify_hint": null,
+      "source": "自编·缺假设样例",
+      "license_note": "答辩演示用·供结构化质疑"
+    }
+  ]
+}
