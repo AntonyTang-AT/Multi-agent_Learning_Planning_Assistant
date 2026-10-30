@@ -1,0 +1,14 @@
+{
+  "request": {
+    "request_id": "req_verify_ok",
+    "task_id": "task_verify_ok",
+    "scenario": "final_review",
+    "intent": "verify_answer",
+    "input": {
+      "answer": "1",
+      "verify_hint": { "expr": "limit(sin(x)/x, x, 0)", "expected": "1" }
+    },
+    "demo": { "force_verify_fail": false }
+  },
+  "notes": "应返回 status=ok, verdict=passed"
+}

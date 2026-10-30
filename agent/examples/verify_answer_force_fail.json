@@ -1,0 +1,23 @@
+{
+  "request": {
+    "request_id": "req_verify_fail",
+    "task_id": "task_verify_fail",
+    "scenario": "final_review",
+    "intent": "verify_answer",
+    "input": {
+      "answer": "1",
+      "verify_hint": { "expr": "limit(sin(x)/x, x, 0)", "expected": "1" }
+    },
+    "demo": { "force_verify_fail": true, "force_conflict": false, "time_jump_days": 0 }
+  },
+  "response_example": {
+    "status": "abstain",
+    "message": "校验未通过，暂不以不可靠结论作为正确答案",
+    "output": {
+      "verdict": "failed",
+      "hint_mode": true,
+      "audit_trail": []
+    },
+    "requires_approval": true
+  }
+}
