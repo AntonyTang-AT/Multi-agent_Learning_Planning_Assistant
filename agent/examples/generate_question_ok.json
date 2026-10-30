@@ -1,0 +1,24 @@
+{
+  "request": {
+    "request_id": "req_gen_ok",
+    "task_id": "task_gen_ok",
+    "scenario": "final_review",
+    "intent": "generate_question",
+    "resource_refs": [
+      { "type": "knowledge", "id": "math.limit", "label": "极限与连续" }
+    ],
+    "resource_payload": {
+      "sample_questions": [
+        {
+          "question_id": "math_q_001",
+          "stem": "求 lim(x→0) sin(x)/x 的值。",
+          "answer": "1",
+          "knowledge_ids": ["math.limit"],
+          "verify_hint": { "expr": "limit(sin(x)/x, x, 0)", "expected": "1" }
+        }
+      ]
+    },
+    "demo": { "force_verify_fail": false }
+  },
+  "notes": "优先使用 resource_payload.sample_questions，校验通过后 status=ok"
+}

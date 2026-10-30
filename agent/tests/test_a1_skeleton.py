@@ -53,7 +53,7 @@ def test_pending_intent_placeholder() -> None:
     payload = {
         "request_id": "req_pending",
         "task_id": "task_pending",
-        "intent": "generate_question",
+        "intent": "record_trace",
         "input": {},
     }
     r = client.post("/agent/v1/invoke", json=payload)

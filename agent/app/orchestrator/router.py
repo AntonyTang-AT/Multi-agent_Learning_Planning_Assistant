@@ -10,7 +10,9 @@ from app.schemas.request import AgentRequest, Intent
 from app.schemas.response import AgentResponse, ResponseMeta, ResponseStatus
 from app.workers import arbitrate as arbitrate_worker
 from app.workers import echo as echo_worker
+from app.workers import generator as generator_worker
 from app.workers import planner as planner_worker
+from app.workers import verifier as verifier_worker
 
 Handler = Callable[[AgentRequest], AgentResponse]
 
@@ -18,11 +20,11 @@ _IMPLEMENTED: dict[str, Handler] = {
     Intent.echo.value: echo_worker.handle,
     Intent.create_plan.value: planner_worker.handle_create_plan,
     Intent.arbitrate.value: arbitrate_worker.handle_arbitrate,
+    Intent.generate_question.value: generator_worker.handle_generate_question,
+    Intent.verify_answer.value: verifier_worker.handle_verify_answer,
 }
 
 _MVP_PENDING = {
-    Intent.generate_question.value,
-    Intent.verify_answer.value,
     Intent.record_trace.value,
     Intent.challenge.value,
     Intent.metacognitive_feedback.value,

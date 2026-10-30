@@ -1,0 +1,13 @@
+{
+  "request": {
+    "request_id": "req_gen_abstain",
+    "task_id": "task_gen_abstain",
+    "scenario": "final_review",
+    "intent": "generate_question",
+    "resource_refs": [
+      { "type": "knowledge", "id": "math.limit", "label": "极限与连续" }
+    ],
+    "demo": { "force_verify_fail": true }
+  },
+  "notes": "force_verify_fail 下应 abstain，不返回不可靠答案作为 output.question"
+}

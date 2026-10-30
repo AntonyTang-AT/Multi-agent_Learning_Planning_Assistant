@@ -11,7 +11,8 @@
 
 - [x] A1 `GET /health` + `POST /agent/v1/invoke` + `echo` + schema
 - [x] A2 `create_plan` 规则审计冲突 + `user_options` + `arbitrate`
-- [ ] A3 出题 / 校验 / 弃答
+- [x] A3 `generate_question` / `verify_answer` + 校验失败弃答（`force_verify_fail`）
+- [ ] A4 错因策略 + 黑板增强
 
 ## 启动
 
