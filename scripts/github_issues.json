@@ -1,0 +1,142 @@
+[
+  {
+    "title": "[闸门][G0] 开工核对：栈已读 + 三端可空跑",
+    "labels": ["role:meta", "phase:gate", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 目标\n全组确认技术栈与仓库结构；前端/后端/Agent 能分别空跑（或至少目录与 README 就绪）。\n\n## 验收\n- [ ] 已读 `docs/技术路线与方案.md` 锁定栈\n- [ ] 仓库目录齐（frontend/backend/agent/data）\n- [ ] 1/2/3 号各自能启动 hello（或明确阻塞并改用 Mock）\n\n## 参考\n- docs/五人详细任务计划.md\n- docs/项目文件结构.md\n\n## 建议接取\n全组；可由任意人勾验收并评论。"
+  },
+  {
+    "title": "[闸门][G1] 接口合同冻结：api.md + agent-api.md",
+    "labels": ["role:meta", "role:backend", "role:agent", "phase:gate", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 目标\n冻结一版业务 API 与 Agent I/O，样例 JSON 可直接拷贝联调。\n\n## 验收\n- [ ] `docs/api.md` 与实现意向一致\n- [ ] `docs/agent-api.md` intent/status 齐全\n- [ ] `agent/examples/*.json` 可被前端 Mock / 后端转发参考\n- [ ] 变更需在 Issue 评论通知 1/2/3 号\n\n## 建议接取\n2 号 + 3 号共同；1 号旁听类型对齐。"
+  },
+  {
+    "title": "[闸门][G2] 12号检查点：传统学习站可用（无 Agent）",
+    "labels": ["role:meta", "phase:gate", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 目标\n**无 Agent 也能**：选场景、浏览资料、存计划、做题落库。\n\n## 验收\n- [ ] 前端主路径可点通（可接真后端）\n- [ ] 后端 CRUD + 资料导入可用\n- [ ] 资料包可导入\n- [ ] `/api/health` 显示 agent down 时业务不整站崩\n\n## 建议接取\n1 + 2 + 4 联合验收；评论贴录屏或截图。"
+  },
+  {
+    "title": "[闸门][G3] 智能接通：冲突协商 + 校验弃答可录屏",
+    "labels": ["role:meta", "role:agent", "phase:gate", "phase:post-12", "priority:P0", "type:milestone"],
+    "body": "## 目标\n12 号后约一周：审计冲突协商与校验弃答两条链路可稳定演示。\n\n## 验收\n- [ ] create_plan → conflict → user_options → 裁决\n- [ ] verify / 出题失败 → abstain，不硬给错答\n- [ ] 黑板条目可见\n- [ ] 有可复现 request 样例\n\n## 建议接取\n3 号主责；1/2 联调。"
+  },
+  {
+    "title": "[闸门][G4] 答辩冻结：三必演 + 海报 + 彩排",
+    "labels": ["role:meta", "role:pitch", "phase:gate", "phase:post-12", "priority:P0", "type:milestone"],
+    "body": "## 目标\n答辩前 3 天冻结：三必演固定用例、A2 海报、讲稿彩排。\n\n## 验收\n- [ ] 三必演用例固定且可复现\n- [ ] `poster/项目海报_A2.pdf`\n- [ ] 路演稿 + PPT；全员彩排 ≥2 次\n- [ ] 不再加人功能\n\n## 建议接取\n5 号统筹；全员配合。"
+  },
+  {
+    "title": "[前端][F1] Vite 工程初始化与路由布局",
+    "labels": ["role:frontend", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
+    "body": "## 角色\n1 号 · 前端 · `frontend/`\n\n## 完成标准\n`npm run dev` 有布局与路由空页。\n\n## 任务清单\n- [ ] `npm create vite@latest`（React-TS）\n- [ ] 安装 `antd` `react-router-dom` `axios` `zustand`\n- [ ] 配置 `.env`：`VITE_API_BASE` / `VITE_USE_MOCK`\n- [ ] 布局：顶栏 + 内容区\n- [ ] 路由：`/` `/chat` `/plan` `/practice` `/materials` `/blackboard`\n- [ ] `src/types/api.ts` 初版\n\n## 技术栈\nReact 18 + Vite + TS + Ant Design 5\n\n## 文档\ndocs/roles/01-前端.md · docs/五人详细任务计划.md §1"
+  },
+  {
+    "title": "[前端][F2] Mock 主路径：场景 / 计划冲突 / 黑板 / 练习",
+    "labels": ["role:frontend", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n1 号 · 前端\n\n## 完成标准\n不依赖后端也能走通：场景 → 计划冲突选项 → 黑板 → 练习页状态展示。\n\n## 任务清单\n- [ ] `ScenarioWizard`：期末复习 / 跟课补漏\n- [ ] `PlanPage` + `UserOptionsCard`\n- [ ] `BlackboardPanel`（列表 + resolve）\n- [ ] `PracticePage`（passed / abstain）\n- [ ] `src/mocks` 基于 `agent/examples`；`VITE_USE_MOCK=true`\n\n## 依赖\n可参考 `agent/examples/create_plan_final_review.json`"
+  },
+  {
+    "title": "[前端][F3] 对接后端 CRUD（12号传统站）",
+    "labels": ["role:frontend", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n1 号 · 前端\n\n## 完成标准\n接真后端：session / materials / questions / plans / attempts / blackboard。\n\n## 任务清单\n- [ ] `api/client.ts` 拦截器与错误提示\n- [ ] 关闭 Mock 后主路径联调\n- [ ] 无 AI 时仍可浏览资料、存计划、做题落库\n\n## 依赖\n等待/并行：后端 B2/B3；阻塞时保留 Mock。"
+  },
+  {
+    "title": "[前端][F4] 对接 AI 网关：冲突与弃答真数据",
+    "labels": ["role:frontend", "phase:post-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n1 号 · 前端\n\n## 完成标准\n`POST /api/ai/{intent}` 返回的 conflict / abstain / user_options 正确渲染。\n\n## 任务清单\n- [ ] 接 AI 网关\n- [ ] 冲突选项提交裁决\n- [ ] 弃答/提示模式文案\n- [ ] DemoBar（time-jump 等，若后端提供）\n\n## 阶段\n12 号之后"
+  },
+  {
+    "title": "[前端][F5] 演示模式与 3 分钟操作路径稳定",
+    "labels": ["role:frontend", "role:pitch", "phase:post-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n1 号 · 前端（与 5 号合写脚本）\n\n## 完成标准\n答辩 3 分钟内可稳定点完必演操作；投屏字号与中文文案可读。\n\n## 任务清单\n- [ ] UI 打磨（投屏）\n- [ ] 演示控制条可用\n- [ ] 与 5 号合写并演练 `docs/演示脚本.md`\n- [ ] 答辩前冻结页面，不加人功能"
+  },
+  {
+    "title": "[后端][B1] FastAPI 骨架：health / session / CORS",
+    "labels": ["role:backend", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
+    "body": "## 角色\n2 号 · 后端 · `backend/`\n\n## 完成标准\n`/api/health` 绿；OpenAPI `/docs` 可开；CORS 放行 5173。\n\n## 任务清单\n- [ ] venv + requirements.txt\n- [ ] `app/main.py` 挂路由\n- [ ] models 初版（User 等）\n- [ ] `GET /api/health` `POST /api/session`\n\n## 纪律\n不写提示词 / Agent 逻辑；不放 LLM Key。"
+  },
+  {
+    "title": "[后端][B2] 资料导入与 materials/questions 查询",
+    "labels": ["role:backend", "role:data", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\n能导入 `data/`；按 subject/chapter/scenario_tag 查询非空。\n\n## 任务清单\n- [ ] `services/import_data.py`\n- [ ] `GET /api/materials` `GET /api/questions`\n- [ ] 同步更新 `docs/api.md`\n\n## 依赖\n4 号资料包 v0.1（可先用仓库内样例）。"
+  },
+  {
+    "title": "[后端][B3] 计划 / 作答 / 黑板 CRUD",
+    "labels": ["role:backend", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\nplans / attempts / blackboard 读写与 resolve 可用；与前端无 AI 联调通过（G2）。\n\n## 任务清单\n- [ ] plans GET/PUT\n- [ ] attempts POST\n- [ ] blackboard GET + resolve\n- [ ] 与 1 号联调"
+  },
+  {
+    "title": "[后端][B4] Agent 网关：httpx 转发与降级错误码",
+    "labels": ["role:backend", "role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\n`agent_client` 可调 `:8001`；失败返回 `agent_unavailable`；Agent 宕机时 CRUD 仍可用。\n\n## 任务清单\n- [ ] `services/agent_client.py`\n- [ ] `POST /api/ai/{intent}`\n- [ ] health 中 `agent: up|down`\n\n## 纪律\n禁止在网关写智能分支（如自动消冲突）。"
+  },
+  {
+    "title": "[后端][B5] AI 响应落库 + demo 接口 + 种子库",
+    "labels": ["role:backend", "phase:post-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\nAI 响应写入黑板/计划快照；demo/time-jump；答辩用 demo.db 种子。\n\n## 任务清单\n- [ ] 落库 AiCallLog / blackboard / plan 草稿\n- [ ] `POST /api/demo/time-jump`\n- [ ] 导入扩容资料回归\n- [ ] 准备演示种子数据库\n\n## 阶段\n含 12 号后工作"
+  },
+  {
+    "title": "[Agent][A1] 服务骨架：health + invoke 回声",
+    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
+    "body": "## 角色\n3 号 · 多智能体 · `agent/`\n\n## 完成标准\n`GET /health`；`POST /agent/v1/invoke` 可回声；schema 冻结。\n\n## 任务清单\n- [ ] FastAPI 应用与 `.env.example`（DEEPSEEK_API_KEY）\n- [ ] request/response schema\n- [ ] 未知 intent 明确错误\n\n## 技术\nintent 路由 + Worker；不强制 CrewAI。"
+  },
+  {
+    "title": "[Agent][A2] create_plan + 规则审计冲突 + user_options",
+    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\n计划草案经审计；冲突时返回 `status=conflict`、黑板条目与三选项；支持 `demo.force_conflict`。\n\n## 任务清单\n- [ ] `workers/planner.py`\n- [ ] `rules/plan_audit.py`\n- [ ] `arbitrate` 按 option 重排\n- [ ] 更新 `examples/create_plan_*.json`"
+  },
+  {
+    "title": "[Agent][A3] 出题/校验链路 + 弃答降级",
+    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\nSymPy/规则校验；失败走重试→提示→`abstain`；`force_verify_fail` 可演示。\n\n## 任务清单\n- [ ] `workers/verifier.py`\n- [ ] `workers/generator.py`\n- [ ] `audit_trail` 与弃答文案\n- [ ] 供后端稳定联调"
+  },
+  {
+    "title": "[Agent][A4] 错因策略差异 + 黑板条目齐全",
+    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\n同一知识点切换错因 → 推荐/计划插入策略不同；无 Key 时模板降级仍可演示。\n\n## 任务清单\n- [ ] 错因 → 策略规则表\n- [ ] 黑板类型覆盖 conflict/challenge/intervention（能出则出）\n- [ ] 与 2 号联调 create_plan / verify"
+  },
+  {
+    "title": "[Agent][A5] 演示用例固化 + 质疑/干预（增强）",
+    "labels": ["role:agent", "phase:post-12", "priority:P1", "type:milestone"],
+    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\n三必演 100% 可复现；质疑/元认知/主动干预有余力完成。\n\n## 任务清单\n- [ ] 固定 request 文件/脚本\n- [ ] Evaluator 结构化质疑（对接 4 号缺假设题）\n- [ ] 元认知 / 主动干预模板卡片\n- [ ] （可选）CrewAI 包装，不改 I/O\n\n## 阶段\n12 号之后为主"
+  },
+  {
+    "title": "[资料][D1] 高数+大物章级大纲对齐课表",
+    "labels": ["role:data", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
+    "body": "## 角色\n4 号 · 资料 · `data/`\n\n## 完成标准\n`taxonomy/math_outline.json` 与 `physics_outline.json` 章名对齐本校教材/课表。\n\n## 任务清单\n- [ ] 修订两份 outline\n- [ ] 先修关系合理\n- [ ] 在 README 注明依据教材版本"
+  },
+  {
+    "title": "[资料][D2] 双场景标签规范 + 可导入样例包",
+    "labels": ["role:data", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n4 号 · 资料\n\n## 完成标准\n`scenario_tags` / `exam_hot` / `lecture_week` 规范写入 README；样例可被 `validate_schema.py` 与后端导入。\n\n## 任务清单\n- [ ] 规范半页写入 `data/README.md`\n- [ ] 高数样例 ≥8 题；大物样例 ≥5 题\n- [ ] 跑通校验脚本"
+  },
+  {
+    "title": "[资料][D3] 资料包 v0.1：材料元数据 + 习题 + 真题入口",
+    "labels": ["role:data", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n4 号 · 资料\n\n## 完成标准\n交 2 号可导入的一包（赶 12 号）：每章材料入口、习题含 verify_hint/错因/热点、真题可检索。\n\n## 任务清单\n- [ ] `materials/` 每章至少 1 条\n- [ ] 习题优先可校验字段\n- [ ] `exams/` 高数 ≥1 套元数据/拆题\n- [ ] 跟课 week 聚合与期末热点可筛\n- [ ] 缺假设样例 ≥2；错因种类 ≥4"
+  },
+  {
+    "title": "[资料][D4] 扩容至舒适区并冻结 data v1.0",
+    "labels": ["role:data", "phase:post-12", "priority:P1", "type:milestone"],
+    "body": "## 角色\n4 号 · 资料\n\n## 完成标准\n高数 ≥30、大物 ≥15（舒适区）；与 3 号对验收；版本冻结不改 ID。\n\n## 任务清单\n- [ ] 题量扩容\n- [ ] 大物迁移章补齐\n- [ ] 校验/冲突演示知识点覆盖确认\n- [ ] README 版权终版；标记 `data v1.0`\n\n## 阶段\n12 号之后"
+  },
+  {
+    "title": "[答辩][P1] 用户访谈 + 双场景痛点 + 双方案比较表",
+    "labels": ["role:pitch", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
+    "body": "## 角色\n5 号 · 海报/答辩\n\n## 完成标准\n访谈 ≥5 人；痛点 3 条原话素材；方案 A/B 五维比较表定稿。\n\n## 任务清单\n- [ ] 期末复习 / 跟课补漏问卷或访谈\n- [ ] 痛点素材\n- [ ] 比较表（可行性/实用/创新/安全/成本）\n- [ ] 与 3 号对齐创新表述（不写没有的功能）"
+  },
+  {
+    "title": "[答辩][P2] 海报线框 + PPT 大纲 + 路演稿初稿",
+    "labels": ["role:pitch", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n5 号\n\n## 完成标准\nA2 七块线框可评审；PPT 8–10 页大纲；路演稿初稿含秒表分节；个人贡献备忘收集中。\n\n## 任务清单\n- [ ] 海报线框\n- [ ] PPT 大纲\n- [ ] `pitch/路演稿.md`\n- [ ] 收齐 1/2/3/4 贡献表述"
+  },
+  {
+    "title": "[答辩][P3] 评分点自检 + 用现有截图更新线框",
+    "labels": ["role:pitch", "phase:pre-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n5 号\n\n## 完成标准\n需求/比较/创新/分工在材料中均有着落；线框用 Mock 或真机截图更新。\n\n## 任务清单\n- [ ] 对照考核表自检\n- [ ] 更新架构图与截图位"
+  },
+  {
+    "title": "[答辩][P4] A2 PDF + PPT 终稿 + 全员彩排",
+    "labels": ["role:pitch", "phase:post-12", "priority:P0", "type:milestone"],
+    "body": "## 角色\n5 号统筹\n\n## 完成标准\n可提交海报；PPT/讲稿终稿；彩排 ≥2；演示脚本与口播对齐；准备追问应答。\n\n## 任务清单\n- [ ] `poster/项目海报_A2.pdf`\n- [ ] PPT 终稿\n- [ ] 真机截图：冲突/弃答/黑板\n- [ ] 全员彩排\n- [ ] 追问准备（安全、合成数据、与 ChatGPT 区别）"
+  }
+]
