@@ -1,0 +1,46 @@
+{
+  "request": {
+    "request_id": "req_arb_001",
+    "task_id": "task_arb_001",
+    "scenario": "final_review",
+    "intent": "arbitrate",
+    "user_profile": {
+      "user_id": "u_demo",
+      "constraints": {
+        "hard": ["daily_minutes<=45", "subject=math"],
+        "soft": []
+      }
+    },
+    "input": {
+      "option_id": "extend_time",
+      "plan": {
+        "scenario": "final_review",
+        "goal": "期末过线",
+        "daily_minutes_budget": 45,
+        "days_left": 3,
+        "tasks": [
+          {
+            "day": 1,
+            "action": "复习",
+            "object": "极限与连续",
+            "minutes": 40,
+            "completion_criteria": "完成3道「极限与连续」基础填空",
+            "load": "medium",
+            "knowledge_ids": ["math.limit"]
+          },
+          {
+            "day": 3,
+            "action": "复习",
+            "object": "导数与微分",
+            "minutes": 60,
+            "completion_criteria": "完成3道「导数与微分」基础填空",
+            "load": "high",
+            "knowledge_ids": ["math.derivative"]
+          }
+        ]
+      }
+    },
+    "demo": { "force_conflict": false }
+  },
+  "notes": "裁决 extend_time 后应抬高预算并通过审计，status=ok。"
+}

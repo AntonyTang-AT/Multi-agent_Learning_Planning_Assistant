@@ -30,26 +30,31 @@
     "message": "计划第3天超出每日45分钟预算",
     "output": {
       "plan": {
+        "scenario": "final_review",
+        "goal": "期末过线",
+        "daily_minutes_budget": 45,
+        "days_left": 14,
         "tasks": [
           {
             "day": 1,
             "action": "复习",
-            "object": "极限定义与运算法则",
-            "minutes": 40,
-            "completion_criteria": "完成3道基础填空",
+            "object": "极限与连续",
+            "minutes": 31,
+            "completion_criteria": "完成3道「极限与连续」基础填空",
             "load": "medium",
-            "knowledge_ids": ["math.limit"]
+            "knowledge_ids": ["math.limit"],
+            "subject": "math"
           }
         ]
       }
     },
     "blackboard_entries": [
       {
-        "entry_id": "bb_demo_001",
+        "entry_id": "bb_req_demo_001_conflict",
         "type": "conflict",
-        "summary": "第3天超出每日45分钟预算",
+        "summary": "计划第3天超出每日45分钟预算",
         "severity": "high",
-        "evidence_refs": ["plan#day3", "constraint#daily_minutes"],
+        "evidence_refs": ["plan#day3", "constraint#daily_minutes", "demo#force_conflict"],
         "status": "open"
       }
     ],

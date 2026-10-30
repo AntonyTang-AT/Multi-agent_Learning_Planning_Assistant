@@ -7,13 +7,10 @@
 - 职责：`docs/roles/03-多智能体.md` · 任务：`docs/五人详细任务计划.md`
 - I/O：`docs/agent-api.md`、`docs/技术路线与方案.md`
 
-## 当前进度（A1）
+## 当前进度
 
-- [x] `GET /health`
-- [x] `POST /agent/v1/invoke` + request/response schema
-- [x] `intent=echo` 回声联调
-- [x] 未知 intent → HTTP 400 + `unknown_intent`
-- [ ] A2 `create_plan` / 审计冲突（占位中）
+- [x] A1 `GET /health` + `POST /agent/v1/invoke` + `echo` + schema
+- [x] A2 `create_plan` 规则审计冲突 + `user_options` + `arbitrate`
 - [ ] A3 出题 / 校验 / 弃答
 
 ## 启动
