@@ -57,6 +57,13 @@
 
 ---
 
+## 任务看板（Issue + Project）
+
+- Issues：https://github.com/AntonyTang-AT/Multi-agent_Learning_Planning_Assistant/issues
+- Project：https://github.com/users/AntonyTang-AT/projects/4
+- 标签：`role:*`（前端/后端/agent/资料/答辩/闸门）、`phase:pre-12|post-12|gate`、`priority:P0|P1`
+- 接取方式：在 Issue 点 **Assignees** 认领自己，并在 Project 把 **Status** 改为 `In Progress`；完成后改为 `Done` 并关闭 Issue
+
 ## 本地开发（骨架阶段）
 
 当前仓库以**目录骨架 + 文档 + 样例资料**为主，三端工程将按任务计划逐步初始化。
