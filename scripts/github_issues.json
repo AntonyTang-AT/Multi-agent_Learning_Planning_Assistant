@@ -1,142 +1,299 @@
 [
   {
     "title": "[闸门][G0] 开工核对：栈已读 + 三端可空跑",
-    "labels": ["role:meta", "phase:gate", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 目标\n全组确认技术栈与仓库结构；前端/后端/Agent 能分别空跑（或至少目录与 README 就绪）。\n\n## 验收\n- [ ] 已读 `docs/技术路线与方案.md` 锁定栈\n- [ ] 仓库目录齐（frontend/backend/agent/data）\n- [ ] 1/2/3 号各自能启动 hello（或明确阻塞并改用 Mock）\n\n## 参考\n- docs/五人详细任务计划.md\n- docs/项目文件结构.md\n\n## 建议接取\n全组；可由任意人勾验收并评论。"
+    "labels": [
+      "role:meta",
+      "phase:gate",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n全组对齐「壳核分离」架构与锁定技术栈，确认仓库目录可用，避免后续各做各的选型。G0 是开工闸门：读完文档 + 三端至少能空跑或明确阻塞方案。\n\n## 2. 具体要求与功能\n- 全员阅读并确认锁定栈：前端 React+Vite+TS+AntD；后端 FastAPI+SQLite；Agent FastAPI+intent 路由+DeepSeek+SymPy；资料 UTF-8 JSON。\n- 核对仓库已有目录：`frontend/` `backend/` `agent/` `data/` `docs/` `poster/` `pitch/`。\n- 1/2/3 号各自尝试本地 hello：前端 `npm`、后端/Agent `uvicorn`；若工程未初始化，至少 README 与目录骨架就绪，并在 Issue 评论写明阻塞与 Mock 替代方案。\n- 在 Issue 评论勾选验收，贴启动成功截图或说明。\n\n## 3. 技术栈 / 方法\n文档驱动核对；本机三进程端口约定：前端 `5173`、后端 `8000`、Agent `8001`。不引入 Docker/Vue/Streamlit。\n\n## 4. 实现思路\n1. 打开 `docs/技术路线与方案.md` §2 与 `docs/项目文件结构.md`，对照仓库树。\n2. 各角色按自己目录检查 `.gitkeep` / README。\n3. 能起则起最小服务；不能起则记录「缺 package.json / requirements」等，转入 F1/B1/A1。\n4. 任意一人在本 Issue 汇总评论并勾验收。\n\n## 5. 预期效果 / 验收标准\n- [ ] 全组确认栈锁定，无并行选型争论\n- [ ] 四大目录存在且文档入口可读\n- [ ] 1/2/3 号要么可空跑，要么有明确阻塞+Mock 计划写在评论里\n\n## 6. 主要修改 / 新增文件与目录\n本闸门以**核对与评论**为主，一般不改代码。若发现缺目录可补：\n- `frontend/` `backend/` `agent/` `data/` 及其 README\n- 参考：`README.md`、`docs/技术路线与方案.md`、`docs/项目文件结构.md`、`docs/五人详细任务计划.md` §0\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[闸门][G1] 接口合同冻结：api.md + agent-api.md",
-    "labels": ["role:meta", "role:backend", "role:agent", "phase:gate", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 目标\n冻结一版业务 API 与 Agent I/O，样例 JSON 可直接拷贝联调。\n\n## 验收\n- [ ] `docs/api.md` 与实现意向一致\n- [ ] `docs/agent-api.md` intent/status 齐全\n- [ ] `agent/examples/*.json` 可被前端 Mock / 后端转发参考\n- [ ] 变更需在 Issue 评论通知 1/2/3 号\n\n## 建议接取\n2 号 + 3 号共同；1 号旁听类型对齐。"
+    "labels": [
+      "role:meta",
+      "role:backend",
+      "role:agent",
+      "phase:gate",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n在写业务代码前冻结「后端业务 API」与「Agent I/O」合同，使前端 Mock、后端网关、Agent Worker 对着同一份 JSON 字段联调，减少返工。\n\n## 2. 具体要求与功能\n- 审阅并冻结一版 `docs/api.md`（session/materials/questions/plans/attempts/blackboard/ai/health）。\n- 审阅并冻结一版 `docs/agent-api.md`（intent 枚举、status：ok/conflict/abstain/…、blackboard_entries、user_options）。\n- 保证 `agent/examples/*.json` 可被前端 Mock 与后端转发直接参考。\n- 之后任何字段变更必须在本 Issue（或新 Issue）评论通知 1/2/3 号。\n\n## 3. 技术栈 / 方法\n以 OpenAPI/Markdown 合同为准；Pydantic/TS 类型跟随文档，而不是反过来偷偷改字段。对齐 `docs/技术路线与方案.md` §4 Agent I/O。\n\n## 4. 实现思路\n1. 2 号主导业务 API 路径与 CRUD 形状；3 号主导 invoke 请求/响应。\n2. 对照 examples 中 `create_plan` 样例，补齐缺字段说明。\n3. 1 号旁听，确认 `frontend/src/types` 可摘类型。\n4. 在评论写「冻结日期 + 版本备注」，勾验收。\n\n## 5. 预期效果 / 验收标准\n- [ ] `docs/api.md` 与实现意向一致（路径、关键字段齐全）\n- [ ] `docs/agent-api.md` intent/status/黑板/选项齐全\n- [ ] `agent/examples/*.json` 可拷贝联调\n- [ ] 变更通知约定写清\n\n## 6. 主要修改 / 新增文件与目录\n- `docs/api.md`\n- `docs/agent-api.md`\n- `agent/examples/*.json`（必要时增补）\n- 可选：`frontend/src/types/api.ts` 初稿、`backend/app/schemas/*`、`agent/app/schemas/*` 草稿\n参考：`docs/技术路线与方案.md`、`docs/roles/02-后端.md`、`docs/roles/03-多智能体.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[闸门][G2] 12号检查点：传统学习站可用（无 Agent）",
-    "labels": ["role:meta", "phase:gate", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 目标\n**无 Agent 也能**：选场景、浏览资料、存计划、做题落库。\n\n## 验收\n- [ ] 前端主路径可点通（可接真后端）\n- [ ] 后端 CRUD + 资料导入可用\n- [ ] 资料包可导入\n- [ ] `/api/health` 显示 agent down 时业务不整站崩\n\n## 建议接取\n1 + 2 + 4 联合验收；评论贴录屏或截图。"
+    "labels": [
+      "role:meta",
+      "phase:gate",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n证明「壳」可独立交付：即使 Agent 未接通，用户仍能选场景、浏览资料、存计划、做题落库。这是 12 号硬闸门。\n\n## 2. 具体要求与功能\n- 前端主路径可点通（可接真后端，或 Mock 但需标注）。\n- 后端 CRUD + 资料导入可用。\n- 4 号资料包可被导入并查询非空。\n- `/api/health` 在 agent down 时业务 API 不整站 500。\n\n## 3. 技术栈 / 方法\n前端 React+AntD；后端 FastAPI+SQLite；资料 JSON 导入。**禁止**依赖 Agent 才能完成 12 号演示。\n\n## 4. 实现思路\n1. 合并验收 F3 + B2/B3 + D3（或样例包）。\n2. 刻意停掉 Agent，验证 health 与 CRUD。\n3. 录 1–2 分钟屏：场景→资料→存计划→做题。\n4. 截图/录屏贴本 Issue。\n\n## 5. 预期效果 / 验收标准\n- [ ] 无 Agent 主路径可演示\n- [ ] 资料导入 + 查询可用\n- [ ] agent down 时站点不崩\n- [ ] 评论有录屏或关键截图\n\n## 6. 主要修改 / 新增文件与目录\n联调涉及（不一定本 Issue 直接改）：\n- `frontend/src/pages/*` `frontend/src/api/*`\n- `backend/app/api/*` `backend/app/services/import_data.py`\n- `data/**`\n参考：`docs/五人详细任务计划.md` §0 G2、`docs/演示脚本.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[闸门][G3] 智能接通：冲突协商 + 校验弃答可录屏",
-    "labels": ["role:meta", "role:agent", "phase:gate", "phase:post-12", "priority:P0", "type:milestone"],
-    "body": "## 目标\n12 号后约一周：审计冲突协商与校验弃答两条链路可稳定演示。\n\n## 验收\n- [ ] create_plan → conflict → user_options → 裁决\n- [ ] verify / 出题失败 → abstain，不硬给错答\n- [ ] 黑板条目可见\n- [ ] 有可复现 request 样例\n\n## 建议接取\n3 号主责；1/2 联调。"
+    "labels": [
+      "role:meta",
+      "role:agent",
+      "phase:gate",
+      "phase:post-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n接通智能内核后，稳定演示两条创新链路：**计划审计冲突协商** 与 **校验失败弃答**，证明系统不偷偷改计划、不强行给错答。\n\n## 2. 具体要求与功能\n- `create_plan` → `status=conflict` → 展示 `user_options` → 用户裁决 → 可选 `arbitrate`。\n- 出题/校验失败 → `status=abstain`（或等价），不把未校验答案当正解。\n- 黑板条目在前端可见。\n- 有可复现 request 样例（`demo.force_conflict` / `force_verify_fail`）。\n\n## 3. 技术栈 / 方法\nAgent：规则审计 + SymPy 校验 + DeepSeek（可降级模板）；后端仅转发；前端渲染 conflict/abstain。\n\n## 4. 实现思路\n1. 3 号保证 A2/A3 可稳定 curl。\n2. 2 号网关透传并落库黑板/计划草稿。\n3. 1 号渲染选项卡与弃答文案。\n4. 用固定 examples 录屏，写入演示脚本。\n\n## 5. 预期效果 / 验收标准\n- [ ] 冲突协商链路可录屏复现\n- [ ] 弃答链路可录屏复现\n- [ ] 黑板可见\n- [ ] 固定 request 样例入库\n\n## 6. 主要修改 / 新增文件与目录\n- `agent/app/workers/*` `agent/app/rules/*` `agent/examples/*` `agent/app/demos/*`\n- `backend/app/api/ai_gateway.py` `backend/app/services/agent_client.py`\n- `frontend/src/pages/Plan*` `Practice*` `components/UserOptions*` `Blackboard*`\n参考：`docs/agent-api.md`、`docs/roles/03-多智能体.md`、`docs/演示脚本.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[闸门][G4] 答辩冻结：三必演 + 海报 + 彩排",
-    "labels": ["role:meta", "role:pitch", "phase:gate", "phase:post-12", "priority:P0", "type:milestone"],
-    "body": "## 目标\n答辩前 3 天冻结：三必演固定用例、A2 海报、讲稿彩排。\n\n## 验收\n- [ ] 三必演用例固定且可复现\n- [ ] `poster/项目海报_A2.pdf`\n- [ ] 路演稿 + PPT；全员彩排 ≥2 次\n- [ ] 不再加人功能\n\n## 建议接取\n5 号统筹；全员配合。"
+    "labels": [
+      "role:meta",
+      "role:pitch",
+      "phase:gate",
+      "phase:post-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n答辩前冻结功能与材料：三必演可复现、海报可交、讲稿彩排达标，停止加人功能。\n\n## 2. 具体要求与功能\n- 三必演用例固定（冲突协商、校验弃答、错因/黑板等按脚本）。\n- 产出 `poster/项目海报_A2.pdf`。\n- 路演稿 + PPT；全员彩排 ≥2 次。\n- 功能冻结：只修 blocker，不加人功能。\n\n## 3. 技术栈 / 方法\n演示脚本 + 固定 demo 开关；海报/PPT 按考核评分点组织叙事。\n\n## 4. 实现思路\n1. 5 号统筹材料；1/2/3 保证演示路径。\n2. 对齐 `docs/演示脚本.md` 秒表。\n3. 准备追问：安全、合成数据、与 ChatGPT 区别。\n4. 本 Issue 贴彩排记录与文件链接。\n\n## 5. 预期效果 / 验收标准\n- [ ] 三必演 100% 可复现\n- [ ] A2 PDF 可提交\n- [ ] 彩排 ≥2；超时问题已消\n- [ ] 明确宣布功能冻结\n\n## 6. 主要修改 / 新增文件与目录\n- `docs/演示脚本.md`\n- `poster/项目海报_A2.pdf`\n- `pitch/答辩PPT.pptx` `pitch/路演稿.md`\n- `agent/examples/*` `agent/app/demos/*`（固化用例）\n参考：`docs/roles/05-海报答辩.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[前端][F1] Vite 工程初始化与路由布局",
-    "labels": ["role:frontend", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
-    "body": "## 角色\n1 号 · 前端 · `frontend/`\n\n## 完成标准\n`npm run dev` 有布局与路由空页。\n\n## 任务清单\n- [ ] `npm create vite@latest`（React-TS）\n- [ ] 安装 `antd` `react-router-dom` `axios` `zustand`\n- [ ] 配置 `.env`：`VITE_API_BASE` / `VITE_USE_MOCK`\n- [ ] 布局：顶栏 + 内容区\n- [ ] 路由：`/` `/chat` `/plan` `/practice` `/materials` `/blackboard`\n- [ ] `src/types/api.ts` 初版\n\n## 技术栈\nReact 18 + Vite + TS + Ant Design 5\n\n## 文档\ndocs/roles/01-前端.md · docs/五人详细任务计划.md §1"
+    "labels": [
+      "role:frontend",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone",
+      "good first issue"
+    ],
+    "body": "## 1. 任务目的\n在 `frontend/` 建立可运行的 React+TS 工程与基础布局，为后续页面与 Mock/联调提供容器。\n\n## 2. 具体要求与功能\n- 使用 Vite 创建 React-TS 项目。\n- 安装并配置：`antd` `react-router-dom` `axios` `zustand`。\n- `.env` / `.env.example`：`VITE_API_BASE`、`VITE_USE_MOCK`。\n- 布局：顶栏 + 内容区。\n- 路由空页：`/` `/chat` `/plan` `/practice` `/materials` `/blackboard`。\n- `src/types/api.ts` 按 `docs/api.md` / agent 响应摘一版类型。\n\n## 3. 技术栈 / 方法\n**React 18 + Vite + TypeScript + Ant Design 5 + React Router 6 + Axios + Zustand**。包管理用 npm。\n\n## 4. 实现思路\n1. 在 `frontend/` 初始化（若目录已有 `.gitkeep`，就地创建，勿破坏仓库根）。\n2. 配置 Ant Design、Router、基础 Layout。\n3. 各路由先放占位 Typography/Empty。\n4. 类型文件先写接口形状注释 + 核心 interface。\n5. `npm run dev` 验证。\n\n## 5. 预期效果 / 验收标准\n- [ ] `npm run dev` 可开，顶栏+路由可切换\n- [ ] 环境变量示例齐全\n- [ ] `src/types/api.ts` 有初版\n\n## 6. 主要修改 / 新增文件与目录\n- `frontend/package.json` `frontend/vite.config.ts` `frontend/index.html`\n- `frontend/.env.example`\n- `frontend/src/main.tsx` `App.tsx`\n- `frontend/src/pages/**`（占位页）\n- `frontend/src/components/layout/**`\n- `frontend/src/types/api.ts`\n- `frontend/src/styles/**`\n参考：`docs/roles/01-前端.md`、`docs/项目文件结构.md` §frontend\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[前端][F2] Mock 主路径：场景 / 计划冲突 / 黑板 / 练习",
-    "labels": ["role:frontend", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n1 号 · 前端\n\n## 完成标准\n不依赖后端也能走通：场景 → 计划冲突选项 → 黑板 → 练习页状态展示。\n\n## 任务清单\n- [ ] `ScenarioWizard`：期末复习 / 跟课补漏\n- [ ] `PlanPage` + `UserOptionsCard`\n- [ ] `BlackboardPanel`（列表 + resolve）\n- [ ] `PracticePage`（passed / abstain）\n- [ ] `src/mocks` 基于 `agent/examples`；`VITE_USE_MOCK=true`\n\n## 依赖\n可参考 `agent/examples/create_plan_final_review.json`"
+    "labels": [
+      "role:frontend",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n在不依赖后端/Agent 的情况下，用 Mock 走通核心产品叙事：场景选择 → 计划冲突选项 → 黑板 → 练习状态（passed/abstain），保证 12 号前前端可演示。\n\n## 2. 具体要求与功能\n- `ScenarioWizard`：期末复习 / 跟课补漏；表单含考试日或章节、每日分钟、科目等。\n- `PlanPage` + `UserOptionsCard`：展示三选项（延长时间/降深度/调目标）。\n- `BlackboardPanel`：条目列表 + resolve 交互（可 Mock）。\n- `PracticePage`：题干、提交、展示 `passed` / `abstain`。\n- `src/mocks` 基于 `agent/examples` 改编；`VITE_USE_MOCK=true` 开关。\n\n## 3. 技术栈 / 方法\nReact + Ant Design Form/Card/List；本地 JSON Mock；Zustand 存当前场景与计划草稿。\n\n## 4. 实现思路\n1. 复制/改编 `agent/examples/create_plan_final_review.json` 到 `src/mocks`。\n2. Mock 层模拟 conflict 与 abstain 两种响应。\n3. 页面只读 Mock client，接口形状与未来真 API 一致，便于 F3 替换。\n4. 自测：从首页点到选项裁决再到黑板。\n\n## 5. 预期效果 / 验收标准\n- [ ] 关后端也能走通场景→冲突选项→黑板→练习状态\n- [ ] Mock 开关可用\n- [ ] 组件命名与目录清晰，便于联调替换\n\n## 6. 主要修改 / 新增文件与目录\n- `frontend/src/pages/Scenario*` `Plan*` `Practice*` `Materials*` `Blackboard*`\n- `frontend/src/components/ScenarioWizard*` `UserOptionsCard*` `BlackboardPanel*`\n- `frontend/src/mocks/**`\n- `frontend/src/stores/**`\n- `frontend/src/api/client.ts`（可先返回 mock）\n参考：`agent/examples/*`、`docs/agent-api.md`、`docs/roles/01-前端.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[前端][F3] 对接后端 CRUD（12号传统站）",
-    "labels": ["role:frontend", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n1 号 · 前端\n\n## 完成标准\n接真后端：session / materials / questions / plans / attempts / blackboard。\n\n## 任务清单\n- [ ] `api/client.ts` 拦截器与错误提示\n- [ ] 关闭 Mock 后主路径联调\n- [ ] 无 AI 时仍可浏览资料、存计划、做题落库\n\n## 依赖\n等待/并行：后端 B2/B3；阻塞时保留 Mock。"
+    "labels": [
+      "role:frontend",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n关闭或旁路 Mock，对接真实后端 CRUD，完成 12 号「传统学习站」前端侧：浏览资料、存计划、做题落库。\n\n## 2. 具体要求与功能\n- `api/client.ts`：baseURL、拦截器、错误 Toast（AntD message/notification）。\n- 对接：`session` `materials` `questions` `plans` `attempts` `blackboard`。\n- 无 AI 时仍可完成主路径；Agent 不可用不阻塞 CRUD。\n- 与后端字段不一致时当日对齐 `docs/api.md` / types。\n\n## 3. 技术栈 / 方法\nAxios + React Query 可选（非必须）；优先 Axios + Zustand。类型与 `docs/api.md` 对齐。\n\n## 4. 实现思路\n1. 等 B2/B3 就绪；阻塞时保留 Mock 分支。\n2. 逐页替换数据源：先 materials/questions，再 plans/attempts/blackboard。\n3. 统一错误处理与 loading。\n4. 与 2 号联调 checklist 打勾。\n\n## 5. 预期效果 / 验收标准\n- [ ] `VITE_USE_MOCK=false` 主路径可走通\n- [ ] 资料/计划/作答可读写\n- [ ] 错误有提示，不白屏\n\n## 6. 主要修改 / 新增文件与目录\n- `frontend/src/api/client.ts` `frontend/src/api/*.ts`\n- `frontend/src/types/api.ts`\n- `frontend/src/pages/**`（接真数据）\n- `frontend/.env.example`\n参考：`docs/api.md`、`docs/roles/01-前端.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[前端][F4] 对接 AI 网关：冲突与弃答真数据",
-    "labels": ["role:frontend", "phase:post-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n1 号 · 前端\n\n## 完成标准\n`POST /api/ai/{intent}` 返回的 conflict / abstain / user_options 正确渲染。\n\n## 任务清单\n- [ ] 接 AI 网关\n- [ ] 冲突选项提交裁决\n- [ ] 弃答/提示模式文案\n- [ ] DemoBar（time-jump 等，若后端提供）\n\n## 阶段\n12 号之后"
+    "labels": [
+      "role:frontend",
+      "phase:post-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n对接 `POST /api/ai/{intent}`，用真实 Agent 响应渲染冲突选项、弃答与黑板，完成智能接通后的前端表现。\n\n## 2. 具体要求与功能\n- 调用 AI 网关：`create_plan` / `arbitrate` / `verify_answer` 等。\n- 正确渲染 `conflict` + `user_options`，提交用户裁决。\n- 正确渲染 `abstain` / 提示模式文案（不把未校验答案当正确）。\n- DemoBar：`time-jump`、force 开关（若后端提供）。\n\n## 3. 技术栈 / 方法\nAxios 调 backend 网关（**前端不直连 Agent**）；状态机用页面状态或 Zustand。\n\n## 4. 实现思路\n1. 复用 F2 组件，数据源改为网关响应。\n2. 裁决后调后端存结果，必要时二次 invoke。\n3. 处理 `agent_unavailable` 友好提示。\n4. 与 G3 录屏路径对齐。\n\n## 5. 预期效果 / 验收标准\n- [ ] 真数据下冲突/弃答 UI 正确\n- [ ] 裁决可提交并回显\n- [ ] DemoBar 可用或有明确「未提供」说明\n\n## 6. 主要修改 / 新增文件与目录\n- `frontend/src/api/ai.ts`\n- `frontend/src/pages/Plan*` `Practice*`\n- `frontend/src/components/UserOptionsCard*` `DemoBar*`\n- `frontend/src/types/api.ts`\n参考：`docs/api.md`（ai 段）、`docs/agent-api.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[前端][F5] 演示模式与 3 分钟操作路径稳定",
-    "labels": ["role:frontend", "role:pitch", "phase:post-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n1 号 · 前端（与 5 号合写脚本）\n\n## 完成标准\n答辩 3 分钟内可稳定点完必演操作；投屏字号与中文文案可读。\n\n## 任务清单\n- [ ] UI 打磨（投屏）\n- [ ] 演示控制条可用\n- [ ] 与 5 号合写并演练 `docs/演示脚本.md`\n- [ ] 答辩前冻结页面，不加人功能"
+    "labels": [
+      "role:frontend",
+      "role:pitch",
+      "phase:post-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n把前端打磨到答辩可用：3 分钟内稳定点完必演操作，投屏可读，与讲稿对齐。\n\n## 2. 具体要求与功能\n- UI 投屏友好：字号、对比度、中文文案。\n- 演示控制条可用（跳转关键状态/触发 demo）。\n- 与 5 号合写并演练 `docs/演示脚本.md`。\n- 答辩前冻结页面，不加人功能。\n\n## 3. 技术栈 / 方法\n现有 React/AntD；可用路由 query 或 DemoBar 切演示态。\n\n## 4. 实现思路\n1. 按脚本列出点击序列，缺页补齐。\n2. 固定演示账号/种子数据依赖告知 2 号。\n3. 全员走表计时，修卡顿与文案。\n4. 冻结前开 PR 只含演示修复。\n\n## 5. 预期效果 / 验收标准\n- [ ] 3 分钟路径稳定可复现\n- [ ] 投屏文案可读\n- [ ] 演示脚本与 UI 一致\n- [ ] 功能冻结声明\n\n## 6. 主要修改 / 新增文件与目录\n- `frontend/src/components/DemoBar*`\n- `frontend/src/pages/**`（文案/样式）\n- `frontend/src/styles/**`\n- 协作：`docs/演示脚本.md` `pitch/路演稿.md`\n参考：`docs/roles/01-前端.md`、`docs/roles/05-海报答辩.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[后端][B1] FastAPI 骨架：health / session / CORS",
-    "labels": ["role:backend", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
-    "body": "## 角色\n2 号 · 后端 · `backend/`\n\n## 完成标准\n`/api/health` 绿；OpenAPI `/docs` 可开；CORS 放行 5173。\n\n## 任务清单\n- [ ] venv + requirements.txt\n- [ ] `app/main.py` 挂路由\n- [ ] models 初版（User 等）\n- [ ] `GET /api/health` `POST /api/session`\n\n## 纪律\n不写提示词 / Agent 逻辑；不放 LLM Key。"
+    "labels": [
+      "role:backend",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone",
+      "good first issue"
+    ],
+    "body": "## 1. 任务目的\n在 `backend/` 搭好传统 Web API 骨架，提供健康检查、会话入口与 CORS，作为后续 CRUD 与网关的底座。\n\n## 2. 具体要求与功能\n- `venv` + `requirements.txt`：fastapi uvicorn sqlalchemy pydantic httpx python-dotenv 等。\n- `app/main.py` 挂路由；CORS 放行 `http://localhost:5173`。\n- models 初版：User 等核心表。\n- `GET /api/health`；`POST /api/session`。\n- OpenAPI `/docs` 可打开。\n\n## 3. 技术栈 / 方法\n**Python 3.11+ · FastAPI · Pydantic v2 · SQLAlchemy 2 · SQLite · uvicorn**。纪律：不写提示词/Agent 逻辑；不放 LLM Key。\n\n## 4. 实现思路\n1. 初始化包结构对齐 `docs/项目文件结构.md`。\n2. config 读 `.env`：`DATABASE_URL` `AGENT_BASE_URL`。\n3. health 返回服务状态；session 创建/返回简易 user/session id。\n4. 本地 curl 验证。\n\n## 5. 预期效果 / 验收标准\n- [ ] `/api/health` 绿\n- [ ] `/docs` 可开\n- [ ] CORS 下前端可跨域访问\n- [ ] session 可创建\n\n## 6. 主要修改 / 新增文件与目录\n- `backend/requirements.txt` `backend/.env.example`\n- `backend/app/main.py` `config.py`\n- `backend/app/db/session.py` `models.py`\n- `backend/app/api/health.py` `session.py`\n- `backend/app/schemas/**`\n参考：`docs/roles/02-后端.md`、`docs/api.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[后端][B2] 资料导入与 materials/questions 查询",
-    "labels": ["role:backend", "role:data", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\n能导入 `data/`；按 subject/chapter/scenario_tag 查询非空。\n\n## 任务清单\n- [ ] `services/import_data.py`\n- [ ] `GET /api/materials` `GET /api/questions`\n- [ ] 同步更新 `docs/api.md`\n\n## 依赖\n4 号资料包 v0.1（可先用仓库内样例）。"
+    "labels": [
+      "role:backend",
+      "role:data",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n把 `data/` 结构化资料导入 SQLite，并提供材料/题目查询 API，支撑传统站浏览与后续 Agent resource_refs。\n\n## 2. 具体要求与功能\n- `services/import_data.py`：读 taxonomy + questions（及 materials）。\n- `GET /api/materials`、`GET /api/questions`，支持 `subject` / `chapter` / `scenario_tag` 等过滤。\n- 同步更新 `docs/api.md`。\n- 导入仓库样例后查询非空。\n\n## 3. 技术栈 / 方法\nSQLAlchemy 批量写入；JSON 文件读取；与 4 号 schema 对齐；可用 `backend/scripts/seed_or_import.py`。\n\n## 4. 实现思路\n1. 先支持现有 `data/questions/math_sample.json` 与 taxonomy。\n2. 幂等导入（按 id upsert）。\n3. 查询参数写清默认值与示例。\n4. 手工/单测验证过滤。\n\n## 5. 预期效果 / 验收标准\n- [ ] 一键/脚本导入成功\n- [ ] 过滤查询非空\n- [ ] `docs/api.md` 已同步\n\n## 6. 主要修改 / 新增文件与目录\n- `backend/app/services/import_data.py`\n- `backend/app/api/materials.py` `questions.py`\n- `backend/app/db/models.py`\n- `backend/scripts/seed_or_import.py`\n- `docs/api.md`\n参考：`data/README.md`、`data/scripts/validate_schema.py`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[后端][B3] 计划 / 作答 / 黑板 CRUD",
-    "labels": ["role:backend", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\nplans / attempts / blackboard 读写与 resolve 可用；与前端无 AI 联调通过（G2）。\n\n## 任务清单\n- [ ] plans GET/PUT\n- [ ] attempts POST\n- [ ] blackboard GET + resolve\n- [ ] 与 1 号联调"
+    "labels": [
+      "role:backend",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n完成计划、作答、黑板的持久化读写与 resolve，支撑 12 号无 AI 联调与后续 AI 结果落库。\n\n## 2. 具体要求与功能\n- plans：GET/PUT（保存用户计划快照）。\n- attempts：POST（作答记录）。\n- blackboard：GET + resolve（更新 status/resolution）。\n- 与前端 F3 联调通过（G2）。\n\n## 3. 技术栈 / 方法\nFastAPI 路由 + SQLAlchemy 模型；Pydantic schema；事务内更新 resolve。\n\n## 4. 实现思路\n1. 按 `docs/api.md` 定字段。\n2. 计划以 JSON 字段存草案亦可（注明结构）。\n3. resolve 只改存储，不做智能消冲突。\n4. 提供 curl 示例给前端。\n\n## 5. 预期效果 / 验收标准\n- [ ] plans/attempts/blackboard 读写可用\n- [ ] resolve 生效\n- [ ] 与前端无 AI 路径联调通过\n\n## 6. 主要修改 / 新增文件与目录\n- `backend/app/api/plans.py` `attempts.py` `blackboard.py`\n- `backend/app/db/models.py`\n- `backend/app/schemas/**`\n- `docs/api.md`\n参考：`docs/roles/02-后端.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[后端][B4] Agent 网关：httpx 转发与降级错误码",
-    "labels": ["role:backend", "role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\n`agent_client` 可调 `:8001`；失败返回 `agent_unavailable`；Agent 宕机时 CRUD 仍可用。\n\n## 任务清单\n- [ ] `services/agent_client.py`\n- [ ] `POST /api/ai/{intent}`\n- [ ] health 中 `agent: up|down`\n\n## 纪律\n禁止在网关写智能分支（如自动消冲突）。"
+    "labels": [
+      "role:backend",
+      "role:agent",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n实现唯一 AI 出口：用 httpx 把请求转发到 Agent `:8001`，失败时返回明确错误码，且 Agent 宕机不影响 CRUD。\n\n## 2. 具体要求与功能\n- `services/agent_client.py`：超时、错误映射。\n- `POST /api/ai/{intent}`：组装/透传 body → agent invoke → 返回。\n- `GET /api/health` 含 `agent: up|down`。\n- **禁止**在网关写智能分支（如自动消冲突、改写答案）。\n\n## 3. 技术栈 / 方法\nhttpx 异步或同步客户端；配置仅 `AGENT_BASE_URL`；错误码如 `agent_unavailable`。\n\n## 4. 实现思路\n1. client 封装 `POST {AGENT_BASE_URL}/agent/v1/invoke`。\n2. 网关校验 intent 白名单后转发。\n3. 连接失败返回 503 + 业务错误码，不 500 打爆整站。\n4. health 探测 agent `/health`。\n\n## 5. 预期效果 / 验收标准\n- [ ] Agent 启动时可调通\n- [ ] Agent 关闭时返回 `agent_unavailable`，CRUD 仍可用\n- [ ] health 正确显示 up/down\n- [ ] 无智能分支代码\n\n## 6. 主要修改 / 新增文件与目录\n- `backend/app/services/agent_client.py`\n- `backend/app/api/ai_gateway.py`\n- `backend/app/api/health.py`\n- `backend/.env.example`\n- `docs/api.md`\n参考：`docs/agent-api.md`、`docs/roles/02-后端.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[后端][B5] AI 响应落库 + demo 接口 + 种子库",
-    "labels": ["role:backend", "phase:post-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n2 号 · 后端\n\n## 完成标准\nAI 响应写入黑板/计划快照；demo/time-jump；答辩用 demo.db 种子。\n\n## 任务清单\n- [ ] 落库 AiCallLog / blackboard / plan 草稿\n- [ ] `POST /api/demo/time-jump`\n- [ ] 导入扩容资料回归\n- [ ] 准备演示种子数据库\n\n## 阶段\n含 12 号后工作"
+    "labels": [
+      "role:backend",
+      "phase:post-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n把 AI 响应可靠落库，提供演示辅助接口与答辩种子库，保证现场可恢复。\n\n## 2. 具体要求与功能\n- 落库：AiCallLog、blackboard_entries、plan 草稿快照。\n- `POST /api/demo/time-jump`（及必要 demo 辅助）。\n- 导入 4 号扩容资料后回归。\n- 准备 `demo.db`（或种子脚本）供答辩。\n\n## 3. 技术栈 / 方法\nSQLAlchemy；网关成功后写库；demo 接口只改演示时钟/快照，不写智能。\n\n## 4. 实现思路\n1. 在 ai_gateway 成功路径写日志与黑板。\n2. time-jump 更新会话演示偏移或转给 agent demo 字段。\n3. 导出/复制一份干净 SQLite。\n4. README 写清恢复步骤。\n\n## 5. 预期效果 / 验收标准\n- [ ] AI 调用可追溯\n- [ ] 黑板/计划草稿可查\n- [ ] demo 接口可用\n- [ ] 种子库可一键恢复\n\n## 6. 主要修改 / 新增文件与目录\n- `backend/app/api/ai_gateway.py` `demo.py`\n- `backend/app/db/models.py`（AiCallLog 等）\n- `backend/scripts/seed_or_import.py`\n- `backend/README.md`\n参考：`docs/api.md`、`docs/演示脚本.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[Agent][A1] 服务骨架：health + invoke 回声",
-    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
-    "body": "## 角色\n3 号 · 多智能体 · `agent/`\n\n## 完成标准\n`GET /health`；`POST /agent/v1/invoke` 可回声；schema 冻结。\n\n## 任务清单\n- [ ] FastAPI 应用与 `.env.example`（DEEPSEEK_API_KEY）\n- [ ] request/response schema\n- [ ] 未知 intent 明确错误\n\n## 技术\nintent 路由 + Worker；不强制 CrewAI。"
+    "labels": [
+      "role:agent",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone",
+      "good first issue"
+    ],
+    "body": "## 1. 任务目的\n在 `agent/` 建立独立智能内核服务骨架：健康检查 + `invoke` 入口回声，冻结 request/response schema，供后端网关联调。\n\n## 2. 具体要求与功能\n- FastAPI 应用；`.env.example` 含 `DEEPSEEK_API_KEY` `MODEL_NAME`。\n- `GET /health`；`POST /agent/v1/invoke`。\n- schemas 对齐 `docs/agent-api.md` / 技术路线 §4。\n- 未知 intent 返回明确错误；可提供临时 `echo` 调试意图。\n- 编排方式：intent 路由 + Worker；**不强制 CrewAI**。\n\n## 3. 技术栈 / 方法\nFastAPI + Pydantic v2；可选 openai 兼容客户端连 DeepSeek；端口 `8001`。\n\n## 4. 实现思路\n1. 按项目文件结构建 `app/api` `schemas` `orchestrator` `workers` 空模块。\n2. invoke 校验 body → 路由表 → echo 返回原 input。\n3. 与 `agent/examples` 对照字段名。\n4. README 写启动命令。\n\n## 5. 预期效果 / 验收标准\n- [ ] `/health` 可用\n- [ ] invoke 回声成功\n- [ ] 未知 intent 有明确错误\n- [ ] schema 文档一致\n\n## 6. 主要修改 / 新增文件与目录\n- `agent/requirements.txt` `agent/.env.example` `agent/README.md`\n- `agent/app/main.py` `config.py`\n- `agent/app/api/invoke.py`\n- `agent/app/schemas/request.py` `response.py`\n- `agent/app/orchestrator/**`\n参考：`docs/roles/03-多智能体.md`、`docs/agent-api.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[Agent][A2] create_plan + 规则审计冲突 + user_options",
-    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\n计划草案经审计；冲突时返回 `status=conflict`、黑板条目与三选项；支持 `demo.force_conflict`。\n\n## 任务清单\n- [ ] `workers/planner.py`\n- [ ] `rules/plan_audit.py`\n- [ ] `arbitrate` 按 option 重排\n- [ ] 更新 `examples/create_plan_*.json`"
+    "labels": [
+      "role:agent",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n实现计划生成与**规则审计**：不可行计划必须暴露为 `conflict` + 黑板 + 三选项，支持用户裁决；可用 `demo.force_conflict` 稳定演示。\n\n## 2. 具体要求与功能\n- `workers/planner.py`：生成计划草案（规则/模板优先，LLM 可选）。\n- `rules/plan_audit.py`：超时、缺完成标准、先修冲突等确定性检查。\n- 冲突时：`status=conflict`，写 `blackboard_entries`，返回 `user_options`（延长时间/降深度/调目标）。\n- `arbitrate`：按 `option_id` 重排或降级说明。\n- 更新 `examples/create_plan_*.json` 与真响应一致。\n\n## 3. 技术栈 / 方法\n规则优先于模型；DeepSeek 仅润色/生成任务文案；无 Key 时模板降级仍可演示。\n\n## 4. 实现思路\n1. planner 根据 scenario（final_review/catch_up）产出天级任务列表。\n2. audit 计算每日负荷 vs constraints；触发冲突。\n3. force_conflict 短路审计结果便于录屏。\n4. arbitrate 读取选项修改 plan 后再返回 ok。\n\n## 5. 预期效果 / 验收标准\n- [ ] 正常约束可返回 ok 计划\n- [ ] 冲突路径稳定可复现\n- [ ] user_options 三选项齐全\n- [ ] examples 与实现一致\n\n## 6. 主要修改 / 新增文件与目录\n- `agent/app/workers/planner.py`\n- `agent/app/rules/plan_audit.py`\n- `agent/app/orchestrator/**`（路由 create_plan/arbitrate）\n- `agent/app/blackboard/**`\n- `agent/examples/create_plan_*.json`\n参考：`docs/技术路线与方案.md` §3.1、`docs/agent-api.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[Agent][A3] 出题/校验链路 + 弃答降级",
-    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\nSymPy/规则校验；失败走重试→提示→`abstain`；`force_verify_fail` 可演示。\n\n## 任务清单\n- [ ] `workers/verifier.py`\n- [ ] `workers/generator.py`\n- [ ] `audit_trail` 与弃答文案\n- [ ] 供后端稳定联调"
+    "labels": [
+      "role:agent",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n实现出题与计算检验质量门禁：校验失败则重试→提示→`abstain`，绝不把未校验/错误答案硬当正解；支持 `force_verify_fail` 演示。\n\n## 2. 具体要求与功能\n- `workers/verifier.py`：SymPy/规则校验。\n- `workers/generator.py`：优先基于 `resource_payload` 改编题。\n- 失败链路与 `audit_trail`、弃答文案。\n- 稳定端口与 README 供 2 号联调。\n\n## 3. 技术栈 / 方法\nSymPy + 少量规则表；LLM 生成后必须过 verifier；演示开关 `demo.force_verify_fail`。\n\n## 4. 实现思路\n1. generate_question / verify_answer 两个 intent。\n2. verifier 对表达式/数值题给出 pass/fail + 原因。\n3. fail 时降级策略写清；最终 abstain。\n4. 单测覆盖力所能及的符号题。\n\n## 5. 预期效果 / 验收标准\n- [ ] 校验通过可返回题目/结论\n- [ ] 失败可走到 abstain\n- [ ] force_verify_fail 可演示\n- [ ] 后端可稳定调用\n\n## 6. 主要修改 / 新增文件与目录\n- `agent/app/workers/verifier.py` `generator.py`\n- `agent/app/orchestrator/**`\n- `agent/examples/*verify*`（可新建）\n- `agent/tests/**`\n- `agent/README.md`\n参考：`docs/roles/03-多智能体.md`、`docs/agent-api.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[Agent][A4] 错因策略差异 + 黑板条目齐全",
-    "labels": ["role:agent", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\n同一知识点切换错因 → 推荐/计划插入策略不同；无 Key 时模板降级仍可演示。\n\n## 任务清单\n- [ ] 错因 → 策略规则表\n- [ ] 黑板类型覆盖 conflict/challenge/intervention（能出则出）\n- [ ] 与 2 号联调 create_plan / verify"
+    "labels": [
+      "role:agent",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n同一知识点在不同错因下给出可区分的推荐/计划插入策略；黑板类型尽量覆盖 conflict/challenge/intervention；无 Key 仍可模板演示。\n\n## 2. 具体要求与功能\n- 错因 → 策略规则表（字典即可）。\n- 切换 `error_tag` 后策略/计划块明显不同。\n- 黑板条目类型能出则出。\n- 与 2 号联调 create_plan / verify。\n\n## 3. 技术栈 / 方法\n规则表驱动；可选 LLM 生成解释文案；降级模板。\n\n## 4. 实现思路\n1. 定义 ≥4 种错因（与 4 号资料对齐）。\n2. 策略表映射到复习动作（回顾概念/变式题/先修回炉等）。\n3. 在 create_plan 或独立 intent 中注入。\n4. 写对比 example 方便前端展示。\n\n## 5. 预期效果 / 验收标准\n- [ ] 不同错因策略可区分\n- [ ] 黑板类型有覆盖\n- [ ] 无 Key 可演示\n- [ ] 与后端联调通过\n\n## 6. 主要修改 / 新增文件与目录\n- `agent/app/rules/error_strategy.py`（或同级规则文件）\n- `agent/app/workers/planner.py` / `memory.py`\n- `agent/app/blackboard/**`\n- `agent/examples/**`\n参考：`data/` 错因字段、`docs/五人详细任务计划.md` §3\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[Agent][A5] 演示用例固化 + 质疑/干预（增强）",
-    "labels": ["role:agent", "phase:post-12", "priority:P1", "type:milestone"],
-    "body": "## 角色\n3 号 · 多智能体\n\n## 完成标准\n三必演 100% 可复现；质疑/元认知/主动干预有余力完成。\n\n## 任务清单\n- [ ] 固定 request 文件/脚本\n- [ ] Evaluator 结构化质疑（对接 4 号缺假设题）\n- [ ] 元认知 / 主动干预模板卡片\n- [ ] （可选）CrewAI 包装，不改 I/O\n\n## 阶段\n12 号之后为主"
+    "labels": [
+      "role:agent",
+      "phase:post-12",
+      "priority:P1",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n把答辩三必演做成 100% 可复现的固定用例；有余力补齐质疑/元认知/主动干预；可选 CrewAI 包装但不改 I/O。\n\n## 2. 具体要求与功能\n- 固定 request 文件/一键脚本。\n- Evaluator 结构化质疑（对接 4 号缺假设题）。\n- 元认知 / 主动干预模板卡片。\n- （可选）CrewAI 包装，I/O 不变。\n\n## 3. 技术栈 / 方法\n`agent/app/demos` + examples；规则触发质疑；LLM 可选。\n\n## 4. 实现思路\n1. 把 G3 两条链路 + 错因对比写成 demos。\n2. challenge / metacognitive_feedback / proactive_intervention intent。\n3. 脚本对比实际响应与金样。\n4. 文档写清答辩操作命令。\n\n## 5. 预期效果 / 验收标准\n- [ ] 三必演一键/固定文件可复现\n- [ ] 增强能力有则演示、无则不强行写海报\n- [ ] I/O 未被可选框架破坏\n\n## 6. 主要修改 / 新增文件与目录\n- `agent/app/demos/**`\n- `agent/app/workers/evaluator.py`\n- `agent/examples/**`\n- `agent/README.md`\n- 协作：`docs/演示脚本.md`\n参考：`docs/roles/03-多智能体.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[资料][D1] 高数+大物章级大纲对齐课表",
-    "labels": ["role:data", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
-    "body": "## 角色\n4 号 · 资料 · `data/`\n\n## 完成标准\n`taxonomy/math_outline.json` 与 `physics_outline.json` 章名对齐本校教材/课表。\n\n## 任务清单\n- [ ] 修订两份 outline\n- [ ] 先修关系合理\n- [ ] 在 README 注明依据教材版本"
+    "labels": [
+      "role:data",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone",
+      "good first issue"
+    ],
+    "body": "## 1. 任务目的\n把高数与大物章级大纲改到与本校教材/课表一致，作为后续材料、习题、场景标签的骨架。\n\n## 2. 具体要求与功能\n- 修订 `taxonomy/math_outline.json` 与 `physics_outline.json`。\n- 先修关系合理。\n- README 注明依据教材版本。\n\n## 3. 技术栈 / 方法\nUTF-8 JSON；保持 id 稳定（已有引用勿乱改）；人工对照课表。\n\n## 4. 实现思路\n1. 打开现有 outline，按课表改章名/顺序。\n2. 补先修边。\n3. 跑校验脚本（若已覆盖 taxonomy）。\n4. 在 `data/README.md` 写教材版本。\n\n## 5. 预期效果 / 验收标准\n- [ ] 两份 outline 章名对齐课表\n- [ ] 先修合理\n- [ ] README 有版本说明\n\n## 6. 主要修改 / 新增文件与目录\n- `data/taxonomy/math_outline.json`\n- `data/taxonomy/physics_outline.json`\n- `data/README.md`\n参考：`docs/roles/04-资料整理.md`、`data/schemas/`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[资料][D2] 双场景标签规范 + 可导入样例包",
-    "labels": ["role:data", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n4 号 · 资料\n\n## 完成标准\n`scenario_tags` / `exam_hot` / `lecture_week` 规范写入 README；样例可被 `validate_schema.py` 与后端导入。\n\n## 任务清单\n- [ ] 规范半页写入 `data/README.md`\n- [ ] 高数样例 ≥8 题；大物样例 ≥5 题\n- [ ] 跑通校验脚本"
+    "labels": [
+      "role:data",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n定义期末复习/跟课补漏双场景标签规范，并交付可被校验脚本与后端导入的样例题包。\n\n## 2. 具体要求与功能\n- 规范写入 `data/README.md`：`scenario_tags` / `exam_hot` / `lecture_week`。\n- 高数样例 ≥8 题；大物样例 ≥5 题。\n- `python data/scripts/validate_schema.py` 通过。\n\n## 3. 技术栈 / 方法\nJSON schema/约定字段；validate_schema.py；与后端 import 字段对齐。\n\n## 4. 实现思路\n1. 先写半页规范再扩题。\n2. 每题含章节、场景标签、必要 verify_hint。\n3. 跑校验，修报错。\n4. 通知 2 号可试导入。\n\n## 5. 预期效果 / 验收标准\n- [ ] README 规范清晰\n- [ ] 题量达标\n- [ ] 校验脚本通过\n\n## 6. 主要修改 / 新增文件与目录\n- `data/README.md`\n- `data/questions/math_sample.json`（扩）\n- `data/questions/physics_sample.json`（新建/扩）\n- `data/scripts/validate_schema.py`（若需补规则）\n参考：`docs/roles/04-资料整理.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[资料][D3] 资料包 v0.1：材料元数据 + 习题 + 真题入口",
-    "labels": ["role:data", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n4 号 · 资料\n\n## 完成标准\n交 2 号可导入的一包（赶 12 号）：每章材料入口、习题含 verify_hint/错因/热点、真题可检索。\n\n## 任务清单\n- [ ] `materials/` 每章至少 1 条\n- [ ] 习题优先可校验字段\n- [ ] `exams/` 高数 ≥1 套元数据/拆题\n- [ ] 跟课 week 聚合与期末热点可筛\n- [ ] 缺假设样例 ≥2；错因种类 ≥4"
+    "labels": [
+      "role:data",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n交付 12 号可用的资料包 v0.1：每章材料入口、可校验习题、真题可检索，并含缺假设/错因样例支撑智能演示。\n\n## 2. 具体要求与功能\n- `materials/` 每章至少 1 条元数据。\n- 习题优先填 `verify_hint`、错因、期末热点。\n- `exams/` 高数 ≥1 套元数据/拆题。\n- 跟课 `lecture_week` 聚合与期末 `exam_hot` 可筛。\n- 缺假设样例 ≥2；错因种类 ≥4。\n\n## 3. 技术栈 / 方法\n结构化 JSON；版权仅摘录元数据/短摘；合成数据标 `synthetic`。\n\n## 4. 实现思路\n1. 按 outline 扫章建 materials。\n2. 扩 questions，对齐 D2 标签。\n3. exams 能检索即可。\n4. 打包说明写给 2 号导入。\n\n## 5. 预期效果 / 验收标准\n- [ ] v0.1 可导入\n- [ ] 场景筛选可用\n- [ ] 缺假设/错因达标\n- [ ] 校验通过\n\n## 6. 主要修改 / 新增文件与目录\n- `data/materials/**`\n- `data/questions/**`\n- `data/exams/**`\n- `data/catch_up/**` 或标签齐全即可\n- `data/final_review/**`（可选）\n- `data/README.md`\n参考：`docs/五人详细任务计划.md` §4\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[资料][D4] 扩容至舒适区并冻结 data v1.0",
-    "labels": ["role:data", "phase:post-12", "priority:P1", "type:milestone"],
-    "body": "## 角色\n4 号 · 资料\n\n## 完成标准\n高数 ≥30、大物 ≥15（舒适区）；与 3 号对验收；版本冻结不改 ID。\n\n## 任务清单\n- [ ] 题量扩容\n- [ ] 大物迁移章补齐\n- [ ] 校验/冲突演示知识点覆盖确认\n- [ ] README 版权终版；标记 `data v1.0`\n\n## 阶段\n12 号之后"
+    "labels": [
+      "role:data",
+      "phase:post-12",
+      "priority:P1",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n题量扩到舒适区并冻结版本，保证答辩期不改 ID，且覆盖 3 号校验/冲突演示知识点。\n\n## 2. 具体要求与功能\n- 高数 ≥30、大物 ≥15（舒适区目标，可按计划微调但需说明）。\n- 大物迁移章补齐。\n- 与 3 号对验收覆盖点。\n- README 版权终版；标记 `data v1.0`；冻结后不改 ID。\n\n## 3. 技术栈 / 方法\n继续 JSON + validate；版本号写在 README。\n\n## 4. 实现思路\n1. 在 v0.1 上扩题，保留旧 id。\n2. 列演示用知识点 checklist 与 3 号对表。\n3. 打版本标签/写明冻结日。\n4. 通知 2 号回归导入。\n\n## 5. 预期效果 / 验收标准\n- [ ] 题量达舒适区或有书面说明\n- [ ] 演示覆盖确认\n- [ ] v1.0 冻结声明\n- [ ] 校验通过\n\n## 6. 主要修改 / 新增文件与目录\n- `data/questions/**` `data/materials/**` `data/exams/**`\n- `data/README.md`\n参考：`docs/roles/04-资料整理.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[答辩][P1] 用户访谈 + 双场景痛点 + 双方案比较表",
-    "labels": ["role:pitch", "phase:pre-12", "priority:P0", "type:milestone", "good first issue"],
-    "body": "## 角色\n5 号 · 海报/答辩\n\n## 完成标准\n访谈 ≥5 人；痛点 3 条原话素材；方案 A/B 五维比较表定稿。\n\n## 任务清单\n- [ ] 期末复习 / 跟课补漏问卷或访谈\n- [ ] 痛点素材\n- [ ] 比较表（可行性/实用/创新/安全/成本）\n- [ ] 与 3 号对齐创新表述（不写没有的功能）"
+    "labels": [
+      "role:pitch",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone",
+      "good first issue"
+    ],
+    "body": "## 1. 任务目的\n用真实用户声音论证「期末复习 / 跟课补漏」需求，并完成方案 A/B 五维比较，支撑海报与路演开场。\n\n## 2. 具体要求与功能\n- 访谈/问卷 ≥5 人（两场景都要问到）。\n- 痛点 3 条原话级素材。\n- 比较表：可行性/实用/创新/安全/成本。\n- 与 3 号对齐创新表述（**不写代码没有的功能**）。\n\n## 3. 技术栈 / 方法\n问卷/访谈记录；表格文档；对齐形式化方案中的创新点（质疑/校验/协商）。\n\n## 4. 实现思路\n1. 设计 5–8 个问题。\n2. 收集原话，提炼痛点。\n3. 填比较表，标明本方案优势对应到功能。\n4. 存入 pitch 备忘。\n\n## 5. 预期效果 / 验收标准\n- [ ] ≥5 人访谈记录可追溯\n- [ ] 3 条痛点原话\n- [ ] 比较表定稿\n- [ ] 创新表述已与 3 号对齐\n\n## 6. 主要修改 / 新增文件与目录\n- `pitch/个人贡献备忘.md` 或 `pitch/用户访谈记录.md`（新建）\n- `pitch/` 下比较表 md/xlsx\n参考：`docs/roles/05-海报答辩.md`、`docs/学习计划多智能体系统·形式化整体方案.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[答辩][P2] 海报线框 + PPT 大纲 + 路演稿初稿",
-    "labels": ["role:pitch", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n5 号\n\n## 完成标准\nA2 七块线框可评审；PPT 8–10 页大纲；路演稿初稿含秒表分节；个人贡献备忘收集中。\n\n## 任务清单\n- [ ] 海报线框\n- [ ] PPT 大纲\n- [ ] `pitch/路演稿.md`\n- [ ] 收齐 1/2/3/4 贡献表述"
+    "labels": [
+      "role:pitch",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n产出可评审的 A2 海报线框、PPT 大纲与带秒表的路演稿初稿，并开始收集个人贡献表述。\n\n## 2. 具体要求与功能\n- 海报线框（A2 七块，见 roles/05）。\n- PPT 大纲 8–10 页。\n- `pitch/路演稿.md` 初稿含秒表分节。\n- 收齐 1/2/3/4 贡献各 3–5 句。\n\n## 3. 技术栈 / 方法\nFigma/PPT/Markdown 任一；结构服从评分点：需求、方案、架构、创新、演示、分工。\n\n## 4. 实现思路\n1. 按七块搭线框文字。\n2. PPT 大纲映射 3 分钟叙事。\n3. 路演稿与演示脚本预留接口。\n4. 群里催贡献备忘。\n\n## 5. 预期效果 / 验收标准\n- [ ] 线框可评审\n- [ ] PPT 大纲齐全\n- [ ] 路演稿有秒表\n- [ ] 贡献收集中/已收\n\n## 6. 主要修改 / 新增文件与目录\n- `poster/`（线框图或说明）\n- `pitch/答辩PPT.pptx`（可先大纲 md）\n- `pitch/路演稿.md`\n- `pitch/个人贡献备忘.md`\n参考：`docs/roles/05-海报答辩.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[答辩][P3] 评分点自检 + 用现有截图更新线框",
-    "labels": ["role:pitch", "phase:pre-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n5 号\n\n## 完成标准\n需求/比较/创新/分工在材料中均有着落；线框用 Mock 或真机截图更新。\n\n## 任务清单\n- [ ] 对照考核表自检\n- [ ] 更新架构图与截图位"
+    "labels": [
+      "role:pitch",
+      "phase:pre-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n对照考核评分点自检材料完整性，并用现有 Mock/真机截图更新海报线框与架构图占位。\n\n## 2. 具体要求与功能\n- 需求/比较/创新/分工在材料中均有着落。\n- 用截图更新线框中的 UI/架构图位置。\n- 列出缺项清单并指派。\n\n## 3. 技术栈 / 方法\n评分表对照；截图来自前端 Mock 或联调环境。\n\n## 4. 实现思路\n1. 打印评分点 checklist。\n2. 缺图就找 1 号截；缺创新表述找 3 号。\n3. 更新线框文件。\n4. 本 Issue 贴自检表。\n\n## 5. 预期效果 / 验收标准\n- [ ] 自检表完成\n- [ ] 线框截图位已更新\n- [ ] 缺项有负责人\n\n## 6. 主要修改 / 新增文件与目录\n- `poster/**`\n- `pitch/**`\n- `docs/` 下可放自检表副本\n参考：考核表、`docs/roles/05-海报答辩.md`\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   },
   {
     "title": "[答辩][P4] A2 PDF + PPT 终稿 + 全员彩排",
-    "labels": ["role:pitch", "phase:post-12", "priority:P0", "type:milestone"],
-    "body": "## 角色\n5 号统筹\n\n## 完成标准\n可提交海报；PPT/讲稿终稿；彩排 ≥2；演示脚本与口播对齐；准备追问应答。\n\n## 任务清单\n- [ ] `poster/项目海报_A2.pdf`\n- [ ] PPT 终稿\n- [ ] 真机截图：冲突/弃答/黑板\n- [ ] 全员彩排\n- [ ] 追问准备（安全、合成数据、与 ChatGPT 区别）"
+    "labels": [
+      "role:pitch",
+      "phase:post-12",
+      "priority:P0",
+      "type:milestone"
+    ],
+    "body": "## 1. 任务目的\n交付可提交的 A2 PDF、PPT/讲稿终稿，完成全员彩排与追问准备，与真机演示对齐。\n\n## 2. 具体要求与功能\n- `poster/项目海报_A2.pdf`。\n- PPT 终稿；路演稿终稿。\n- 真机截图：冲突/弃答/黑板。\n- 全员彩排 ≥2；演示脚本与口播对齐。\n- 追问准备：安全、合成数据、与 ChatGPT 区别。\n\n## 3. 技术栈 / 方法\n导出 PDF；按 `docs/演示脚本.md` 走表；材料只描述已实现功能。\n\n## 4. 实现思路\n1. 替换所有占位图为真机图。\n2. 与 1/3 号对秒表。\n3. 彩排记录问题清单并清零。\n4. 打包提交物清单。\n\n## 5. 预期效果 / 验收标准\n- [ ] PDF 可提交\n- [ ] PPT/讲稿终稿\n- [ ] 彩排 ≥2 且不超时\n- [ ] 追问应答稿就绪\n\n## 6. 主要修改 / 新增文件与目录\n- `poster/项目海报_A2.pdf`\n- `pitch/答辩PPT.pptx`\n- `pitch/路演稿.md`\n- `docs/演示脚本.md`\n参考：`docs/roles/05-海报答辩.md`、G4\n\n## AI 协作提示（给执行者）\n\n把 **本 Issue 全文** 与下列文档一起交给 AI，并要求「只改本 Issue 列出的目录，遵守技术栈与纪律，先跑通验收标准」：\n\n- `README.md`\n- `docs/技术路线与方案.md`\n- `docs/项目文件结构.md`\n- `docs/五人详细任务计划.md`\n- 对应角色文档 `docs/roles/*.md`\n- 相关接口：`docs/api.md` / `docs/agent-api.md`（按角色选用）\n\n开分支命名建议：`feat/<issue-id>-short-slug`，完成后开 PR 到 `main`（需 Code Owner 审核）。\n"
   }
 ]
