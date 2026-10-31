@@ -182,9 +182,14 @@ def check_scene(path: Path, known_ids: set[str], question_ids: set[str],
     return errors
 
 
+def _outline_files() -> list[Path]:
+    """仅大纲文件；跳过 aliases.json 等非 outline 合同文件。"""
+    return sorted((ROOT / "taxonomy").glob("*_outline.json"))
+
+
 def collect_outline_ids() -> set[str]:
     ids: set[str] = set()
-    for p in (ROOT / "taxonomy").glob("*.json"):
+    for p in _outline_files():
         data = json.loads(p.read_text(encoding="utf-8"))
         ids.update(n["id"] for n in data.get("nodes", []) if "id" in n)
     return ids
@@ -193,7 +198,7 @@ def collect_outline_ids() -> set[str]:
 def collect_chapter_ids() -> set[str]:
     """只取章级节点。场景聚合的 chapter_id 必须是章，不能是知识点。"""
     ids: set[str] = set()
-    for p in (ROOT / "taxonomy").glob("*.json"):
+    for p in _outline_files():
         data = json.loads(p.read_text(encoding="utf-8"))
         ids.update(n["id"] for n in data.get("nodes", [])
                    if n.get("level") == "chapter" and "id" in n)
@@ -202,7 +207,7 @@ def collect_chapter_ids() -> set[str]:
 
 def main() -> int:
     errors: list[str] = []
-    for p in (ROOT / "taxonomy").glob("*.json"):
+    for p in _outline_files():
         errors.extend(check_outline(p))
     known = collect_outline_ids()
     chapters = collect_chapter_ids()
