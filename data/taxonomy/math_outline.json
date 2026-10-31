@@ -1,36 +1,503 @@
 {
   "subject": "math",
-  "title": "高等数学知识点大纲（初稿，按本校课表可改）",
+  "title": "高等数学（《大学数学 1》第三版）章级大纲",
+  "version": "2.1",
+  "verified": true,
+  "scope_note": "只覆盖《大学数学 1》第三版上册 8 章 = 第 1 学期（高数 A1）全部考点。下册 7 章不在本项目交付范围，已从 nodes 中移除。",
+  "basis": {
+    "type": "本校教材目录（第三版）",
+    "textbook": {
+      "series": "大学数学（1~5）系列教材 第三版",
+      "volume_1": "《大学数学 1》第三版，湖南大学数学与计量经济学院组编，高等教育出版社",
+      "volume_2": "《大学数学 2》第三版，肖萍、孟益民、全志勇主编，高等教育出版社，2014.3"
+    },
+    "artifacts": [
+      "source/_原始下载/高数/00_教材/HNU大学数学1 第3版.pdf —— 目录页 PDF p8–p14（扫描件，逐页读取）",
+      "C:/Users/dongq/users/Downloads/HNU大学数学2.pdf —— 目录页 PDF p6–p11（扫描件，逐页读取）"
+    ],
+    "verified_level": "章名、节名、页码全部取自教材目录页原件，无推断成分",
+    "note": "第三版把「无穷级数」从上册移到了下册（第二版读本在上册）。上册末为附录「积分表」（p328 起）。",
+    "obtained": "2026-10-31"
+  },
+  "counts": {
+    "chapters": 8,
+    "knowledge_points": 40
+  },
   "nodes": [
     {
-      "id": "math.limit",
-      "name": "极限与连续",
-      "children": ["math.limit.def", "math.limit.ops", "math.continuity"],
+      "id": "math.a1.ch01",
+      "name": "集合与函数",
+      "level": "chapter",
+      "no": 1,
+      "volume": "上册",
+      "page_range": [
+        1,
+        27
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch01.kp01",
+        "math.a1.ch01.kp02",
+        "math.a1.ch01.kp03"
+      ],
       "prerequisites": []
     },
     {
-      "id": "math.derivative",
-      "name": "导数与微分",
-      "children": ["math.derivative.def", "math.derivative.apps"],
-      "prerequisites": ["math.limit"]
+      "id": "math.a1.ch01.kp01",
+      "name": "集合与映射",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch01",
+      "page": 1
     },
     {
-      "id": "math.integral",
-      "name": "积分及其应用",
-      "children": ["math.integral.indef", "math.integral.def", "math.integral.apps"],
-      "prerequisites": ["math.derivative"]
+      "id": "math.a1.ch01.kp02",
+      "name": "函数的概念与基本性质",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch01",
+      "page": 9
     },
     {
-      "id": "math.ode",
-      "name": "微分方程",
-      "children": [],
-      "prerequisites": ["math.integral"]
+      "id": "math.a1.ch01.kp03",
+      "name": "初等函数",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch01",
+      "page": 18
     },
     {
-      "id": "math.series",
-      "name": "级数",
-      "children": [],
-      "prerequisites": ["math.integral"]
+      "id": "math.a1.ch02",
+      "name": "极限",
+      "level": "chapter",
+      "no": 2,
+      "volume": "上册",
+      "page_range": [
+        28,
+        74
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch02.kp01",
+        "math.a1.ch02.kp02",
+        "math.a1.ch02.kp03",
+        "math.a1.ch02.kp04",
+        "math.a1.ch02.kp05",
+        "math.a1.ch02.kp06",
+        "math.a1.ch02.kp07"
+      ],
+      "prerequisites": [
+        "math.a1.ch01"
+      ]
+    },
+    {
+      "id": "math.a1.ch02.kp01",
+      "name": "数列的极限",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch02",
+      "page": 28
+    },
+    {
+      "id": "math.a1.ch02.kp02",
+      "name": "函数的极限",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch02",
+      "page": 40
+    },
+    {
+      "id": "math.a1.ch02.kp03",
+      "name": "无穷小量与无穷大量",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch02",
+      "page": 48
+    },
+    {
+      "id": "math.a1.ch02.kp04",
+      "name": "极限的运算",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch02",
+      "page": 55
+    },
+    {
+      "id": "math.a1.ch02.kp05",
+      "name": "极限存在定理",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch02",
+      "page": 60
+    },
+    {
+      "id": "math.a1.ch02.kp06",
+      "name": "两个重要极限",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch02",
+      "page": 64
+    },
+    {
+      "id": "math.a1.ch02.kp07",
+      "name": "无穷小量的比较",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch02",
+      "page": 69
+    },
+    {
+      "id": "math.a1.ch03",
+      "name": "函数的连续性",
+      "level": "chapter",
+      "no": 3,
+      "volume": "上册",
+      "page_range": [
+        75,
+        91
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch03.kp01",
+        "math.a1.ch03.kp02"
+      ],
+      "prerequisites": [
+        "math.a1.ch02"
+      ]
+    },
+    {
+      "id": "math.a1.ch03.kp01",
+      "name": "函数的连续与间断",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch03",
+      "page": 75
+    },
+    {
+      "id": "math.a1.ch03.kp02",
+      "name": "连续函数的性质",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch03",
+      "page": 81
+    },
+    {
+      "id": "math.a1.ch04",
+      "name": "函数的导数和微分",
+      "level": "chapter",
+      "no": 4,
+      "volume": "上册",
+      "page_range": [
+        92,
+        150
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch04.kp01",
+        "math.a1.ch04.kp02",
+        "math.a1.ch04.kp03",
+        "math.a1.ch04.kp04",
+        "math.a1.ch04.kp05",
+        "math.a1.ch04.kp06"
+      ],
+      "prerequisites": [
+        "math.a1.ch03"
+      ]
+    },
+    {
+      "id": "math.a1.ch04.kp01",
+      "name": "导数的概念",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch04",
+      "page": 92
+    },
+    {
+      "id": "math.a1.ch04.kp02",
+      "name": "求导法则",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch04",
+      "page": 102
+    },
+    {
+      "id": "math.a1.ch04.kp03",
+      "name": "高阶导数",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch04",
+      "page": 113
+    },
+    {
+      "id": "math.a1.ch04.kp04",
+      "name": "微分及其运算",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch04",
+      "page": 118
+    },
+    {
+      "id": "math.a1.ch04.kp05",
+      "name": "微分中值定理",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch04",
+      "page": 124
+    },
+    {
+      "id": "math.a1.ch04.kp06",
+      "name": "洛必达法则",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch04",
+      "page": 139
+    },
+    {
+      "id": "math.a1.ch05",
+      "name": "导数与微分的应用举例",
+      "level": "chapter",
+      "no": 5,
+      "volume": "上册",
+      "page_range": [
+        151,
+        183
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch05.kp01",
+        "math.a1.ch05.kp02",
+        "math.a1.ch05.kp03",
+        "math.a1.ch05.kp04",
+        "math.a1.ch05.kp05"
+      ],
+      "prerequisites": [
+        "math.a1.ch04"
+      ]
+    },
+    {
+      "id": "math.a1.ch05.kp01",
+      "name": "函数的单调性与凸性",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch05",
+      "page": 151
+    },
+    {
+      "id": "math.a1.ch05.kp02",
+      "name": "函数的极值和最值",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch05",
+      "page": 158
+    },
+    {
+      "id": "math.a1.ch05.kp03",
+      "name": "函数图形的描绘",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch05",
+      "page": 167
+    },
+    {
+      "id": "math.a1.ch05.kp04",
+      "name": "相关变化率、曲率",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch05",
+      "page": 172
+    },
+    {
+      "id": "math.a1.ch05.kp05",
+      "name": "在经济学中的应用",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch05",
+      "page": 177
+    },
+    {
+      "id": "math.a1.ch06",
+      "name": "函数的积分",
+      "level": "chapter",
+      "no": 6,
+      "volume": "上册",
+      "page_range": [
+        184,
+        249
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch06.kp01",
+        "math.a1.ch06.kp02",
+        "math.a1.ch06.kp03",
+        "math.a1.ch06.kp04",
+        "math.a1.ch06.kp05"
+      ],
+      "prerequisites": [
+        "math.a1.ch05"
+      ]
+    },
+    {
+      "id": "math.a1.ch06.kp01",
+      "name": "定积分的概念",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch06",
+      "page": 184
+    },
+    {
+      "id": "math.a1.ch06.kp02",
+      "name": "定积分的基本定理",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch06",
+      "page": 193
+    },
+    {
+      "id": "math.a1.ch06.kp03",
+      "name": "不定积分",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch06",
+      "page": 199
+    },
+    {
+      "id": "math.a1.ch06.kp04",
+      "name": "定积分的计算",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch06",
+      "page": 225
+    },
+    {
+      "id": "math.a1.ch06.kp05",
+      "name": "反常积分",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch06",
+      "page": 234
+    },
+    {
+      "id": "math.a1.ch07",
+      "name": "定积分的应用举例",
+      "level": "chapter",
+      "no": 7,
+      "volume": "上册",
+      "page_range": [
+        250,
+        276
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch07.kp01",
+        "math.a1.ch07.kp02",
+        "math.a1.ch07.kp03",
+        "math.a1.ch07.kp04",
+        "math.a1.ch07.kp05"
+      ],
+      "prerequisites": [
+        "math.a1.ch06"
+      ]
+    },
+    {
+      "id": "math.a1.ch07.kp01",
+      "name": "微元法",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch07",
+      "page": 250
+    },
+    {
+      "id": "math.a1.ch07.kp02",
+      "name": "平面图形的面积",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch07",
+      "page": 251
+    },
+    {
+      "id": "math.a1.ch07.kp03",
+      "name": "平面曲线的弧长",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch07",
+      "page": 257
+    },
+    {
+      "id": "math.a1.ch07.kp04",
+      "name": "立体的体积和旋转体的侧面积",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch07",
+      "page": 263
+    },
+    {
+      "id": "math.a1.ch07.kp05",
+      "name": "定积分在物理及其他方面的应用",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch07",
+      "page": 268
+    },
+    {
+      "id": "math.a1.ch08",
+      "name": "常微分方程",
+      "level": "chapter",
+      "no": 8,
+      "volume": "上册",
+      "page_range": [
+        277,
+        327
+      ],
+      "page_status": "verified_toc",
+      "children": [
+        "math.a1.ch08.kp01",
+        "math.a1.ch08.kp02",
+        "math.a1.ch08.kp03",
+        "math.a1.ch08.kp04",
+        "math.a1.ch08.kp05",
+        "math.a1.ch08.kp06",
+        "math.a1.ch08.kp07"
+      ],
+      "prerequisites": [
+        "math.a1.ch07"
+      ]
+    },
+    {
+      "id": "math.a1.ch08.kp01",
+      "name": "微分方程的基本概念",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch08",
+      "page": 277
+    },
+    {
+      "id": "math.a1.ch08.kp02",
+      "name": "一阶微分方程",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch08",
+      "page": 282
+    },
+    {
+      "id": "math.a1.ch08.kp03",
+      "name": "可降阶的高阶微分方程",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch08",
+      "page": 293
+    },
+    {
+      "id": "math.a1.ch08.kp04",
+      "name": "线性微分方程解的结构",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch08",
+      "page": 300
+    },
+    {
+      "id": "math.a1.ch08.kp05",
+      "name": "高阶常系数线性微分方程",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch08",
+      "page": 304
+    },
+    {
+      "id": "math.a1.ch08.kp06",
+      "name": "欧拉方程",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch08",
+      "page": 317
+    },
+    {
+      "id": "math.a1.ch08.kp07",
+      "name": "常系数线性微分方程组求解举例",
+      "level": "knowledge_point",
+      "parent": "math.a1.ch08",
+      "page": 320
     }
-  ]
+  ],
+  "scope": {
+    "volume": "上册《大学数学 1》第三版",
+    "chapter_no_range": [
+      1,
+      8
+    ],
+    "course": "高等数学 A1（第 1 学期）",
+    "excluded_volume": {
+      "name": "下册《大学数学 2》第三版",
+      "chapters": [
+        "向量代数与空间解析几何",
+        "多元函数微分学",
+        "多元函数微分学的应用",
+        "多元函数积分学",
+        "多元函数积分学的应用",
+        "含参变量的积分（教材标 *，超纲）",
+        "无穷级数"
+      ],
+      "reason": "2026-10-31 范围收缩：本期只做第 1 学期两门课（大学数学 1 + 大物 1），下册不采集、不建题"
+    }
+  }
 }

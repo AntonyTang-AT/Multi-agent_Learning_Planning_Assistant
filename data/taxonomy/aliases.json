@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "updated": "2026-10-31",
+  "purpose": "将本包细粒度 taxonomy / error_tags 映射到 3 号 Agent 合同用的粗粒度 ID，供 2 号后端导入与组请求时使用。不改动 question_id 与细粒度 knowledge_ids。",
+  "agent_knowledge_ids": [
+    "math.limit",
+    "math.derivative",
+    "math.mvt",
+    "math.integral",
+    "math.ode",
+    "phy.mech",
+    "phy.wave",
+    "phy.optics",
+    "phy.thermo"
+  ],
+  "prefix_rules": [
+    {
+      "prefix": "math.a1.ch01",
+      "agent": "math.limit",
+      "note": "集合与函数：Agent 无独立节点，演示/计划挂靠 limit 预习块"
+    },
+    {
+      "prefix": "math.a1.ch02",
+      "agent": "math.limit",
+      "note": "极限"
+    },
+    {
+      "prefix": "math.a1.ch03",
+      "agent": "math.limit",
+      "note": "连续性"
+    },
+    {
+      "prefix": "math.a1.ch04",
+      "agent": "math.derivative",
+      "note": "导数与微分"
+    },
+    {
+      "prefix": "math.a1.ch05",
+      "agent": "math.derivative",
+      "note": "导数应用；中值定理相关也可视为 math.mvt（见 exact）"
+    },
+    {
+      "prefix": "math.a1.ch06",
+      "agent": "math.integral",
+      "note": "不定/定积分基础"
+    },
+    {
+      "prefix": "math.a1.ch07",
+      "agent": "math.integral",
+      "note": "定积分应用"
+    },
+    {
+      "prefix": "math.a1.ch08",
+      "agent": "math.ode",
+      "note": "常微分方程"
+    },
+    {
+      "prefix": "phy.kinematics",
+      "agent": "phy.mech"
+    },
+    {
+      "prefix": "phy.dynamics",
+      "agent": "phy.mech"
+    },
+    {
+      "prefix": "phy.rigid",
+      "agent": "phy.mech"
+    },
+    {
+      "prefix": "phy.vibration",
+      "agent": "phy.wave"
+    },
+    {
+      "prefix": "phy.wave",
+      "agent": "phy.wave"
+    },
+    {
+      "prefix": "phy.interference",
+      "agent": "phy.optics"
+    },
+    {
+      "prefix": "phy.diffraction",
+      "agent": "phy.optics"
+    },
+    {
+      "prefix": "phy.polarization",
+      "agent": "phy.optics"
+    },
+    {
+      "prefix": "phy.kinetic",
+      "agent": "phy.thermo"
+    },
+    {
+      "prefix": "phy.thermo",
+      "agent": "phy.thermo"
+    }
+  ],
+  "exact": {
+    "math.a1.ch05.kp03": ["math.derivative", "math.mvt"],
+    "math.a1.ch05.kp04": ["math.derivative", "math.mvt"]
+  },
+  "resolve_algorithm": [
+    "1. 若 fine_id 出现在 exact，返回该数组（可多对一）。",
+    "2. 否则按 prefix_rules 最长前缀匹配，返回 [agent]。",
+    "3. 无匹配则返回 []；后端不得假装可按 math.limit 等粗 ID 直接 SQL 命中细粒度 knowledge_ids。",
+    "4. 组 Agent 请求时：resource_refs[].id 使用粗 ID；resource_payload.sample_questions 保留题目原始 knowledge_ids。"
+  ],
+  "error_tag_to_agent": {
+    "undefined_assumption": {
+      "agent": "undefined_assumption",
+      "note": "已与 Agent 策略同名"
+    },
+    "concept_confusion": {
+      "agent": "conceptual_gap",
+      "note": "概念混淆 → 先修回炉"
+    },
+    "prerequisite_gap": {
+      "agent": "conceptual_gap",
+      "note": "词表有、题库暂少"
+    },
+    "formula_misuse": {
+      "agent": "limit_misuse",
+      "note": "公式误用：默认映射到 limit_misuse 策略模板；非极限题后端可改为 symbol_error"
+    },
+    "calculation_error": {
+      "agent": "symbol_error",
+      "note": "计算失误按符号/变形专项干预"
+    },
+    "sign_error": {
+      "agent": "symbol_error"
+    },
+    "condition_omitted": {
+      "agent": "undefined_assumption",
+      "note": "漏条件按补全假设处理"
+    },
+    "boundary_condition": {
+      "agent": "undefined_assumption"
+    },
+    "unit_dimension": {
+      "agent": null,
+      "note": "仅统计/展示，Agent 暂无特化策略"
+    },
+    "solution_missing": {
+      "agent": null,
+      "note": "仅统计/展示"
+    },
+    "no_method": {
+      "agent": "conceptual_gap",
+      "note": "词表有、题库暂少"
+    },
+    "misread_stem": {
+      "agent": null,
+      "note": "仅统计/展示"
+    }
+  },
+  "importer_hints": {
+    "materials": "materials/index.json 顶层键为 items（非 materials）；导入时需映射。",
+    "exams": "exams/index.json 为台账；合成卷入库格式若与后端不同，由 2 号适配，不改本包冻结字段。",
+    "difficulty_5": "本期无 difficulty=5 题；演示用 d3–d4。书面说明见 README §六。"
+  }
+}

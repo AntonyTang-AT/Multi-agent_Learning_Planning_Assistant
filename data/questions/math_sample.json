@@ -1,40 +1,808 @@
 {
-  "version": "0.1",
+  "subject": "math",
+  "version": "1.1",
+  "scope": "《大学数学 1》第三版 上册 8 章（高数 A1）；共 30 题，每章 3–4 题，配额见 data/intake/collection_list.csv",
+  "exam_hot_source": "exams/exam_hot_math.json（17/18/19/20/23 级参考答案关键词统计，章级）",
   "questions": [
     {
-      "question_id": "math_q_001",
+      "question_id": "math_a1c01_0001",
       "subject": "math",
-      "knowledge_ids": ["math.limit"],
-      "scenario_tags": ["final_review", "catch_up"],
-      "chapter": "极限与连续",
+      "knowledge_ids": [
+        "math.a1.ch01"
+      ],
+      "scenario_tags": [
+        "catch_up"
+      ],
+      "chapter": "集合与函数",
+      "exam_hot": false,
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "求函数 $f(x)=\\ln(x-1)+\\sqrt{4-x}$ 的定义域。",
+      "answer": "$(1,\\,4]$",
+      "assumptions": [],
+      "error_tags": [
+        "condition_omitted"
+      ],
+      "verify_hint": null,
+      "source": "自编·对齐教材第 1 章第 2 节",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c01_0002",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch01.kp02"
+      ],
+      "scenario_tags": [
+        "catch_up"
+      ],
+      "chapter": "集合与函数",
+      "exam_hot": false,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "判断函数 $f(x)=\\ln\\dfrac{1-x}{1+x}$ 的奇偶性，并说明理由。",
+      "answer": "奇函数。定义域为 $(-1,\\,1)$，关于原点对称；且 $f(-x)=\\ln\\dfrac{1+x}{1-x}=-\\ln\\dfrac{1-x}{1+x}=-f(x)$。",
+      "assumptions": [],
+      "error_tags": [
+        "condition_omitted"
+      ],
+      "verify_hint": {
+        "expr": "simplify(log((1-x)/(1+x)) + log((1+x)/(1-x)))",
+        "expected": "0"
+      },
+      "source": "自编·对齐教材第 1 章第 2 节",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c01_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch01.kp02"
+      ],
+      "scenario_tags": [
+        "catch_up"
+      ],
+      "chapter": "集合与函数",
+      "exam_hot": false,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "求 $y=\\dfrac{2x}{1+x}$ 的反函数，并写出反函数的定义域。",
+      "answer": "由 $y(1+x)=2x$ 得 $x=\\dfrac{y}{2-y}$，故反函数为 $y=\\dfrac{x}{2-x}$，定义域 $x\\neq 2$，即 $(-\\infty,\\,2)\\cup(2,\\,+\\infty)$。",
+      "assumptions": [],
+      "error_tags": [
+        "boundary_condition"
+      ],
+      "verify_hint": {
+        "expr": "solve(2*x/(1+x)-y, x)",
+        "expected": "y/(2-y)"
+      },
+      "source": "自编·对齐教材第 1 章第 2 节",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c02_0001",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch02"
+      ],
+      "scenario_tags": [
+        "final_review",
+        "catch_up"
+      ],
+      "chapter": "极限",
+      "exam_hot": true,
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "求 $\\lim\\limits_{x\\to 0}\\dfrac{\\sin x}{x}$。",
+      "answer": "$1$",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "limit(sin(x)/x, x, 0)",
+        "expected": "1"
+      },
+      "source": "自编·第一重要极限",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c02_0002",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch02"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "极限",
+      "exam_hot": true,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "求 $\\lim\\limits_{x\\to 0}\\dfrac{1-\\cos x}{x^{2}}$。",
+      "answer": "$\\dfrac{1}{2}$",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse",
+        "calculation_error"
+      ],
+      "verify_hint": {
+        "expr": "limit((1-cos(x))/x^2, x, 0)",
+        "expected": "1/2"
+      },
+      "source": "自编·等价无穷小 $1-\\cos x\\sim x^2/2$",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c02_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch02.kp07"
+      ],
+      "scenario_tags": [
+        "catch_up",
+        "final_review"
+      ],
+      "chapter": "极限",
+      "exam_hot": true,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "求 $\\lim\\limits_{x\\to 0}\\dfrac{\\ln(1+3x)}{\\sin 2x}$。",
+      "answer": "$\\dfrac{3}{2}$。当 $x\\to0$ 时 $\\ln(1+3x)\\sim 3x$，$\\sin 2x\\sim 2x$，故原式 $=\\lim\\limits_{x\\to0}\\dfrac{3x}{2x}=\\dfrac{3}{2}$。",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "limit(log(1+3*x)/sin(2*x), x, 0)",
+        "expected": "3/2"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c02_0004",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch02.kp06"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "极限",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "若 $\\lim\\limits_{x\\to\\infty}\\left(\\dfrac{x+a}{x-a}\\right)^{x}=e^{4}$，求常数 $a$。",
+      "answer": "$a=2$。$\\left(\\dfrac{x+a}{x-a}\\right)^{x}=\\left(1+\\dfrac{2a}{x-a}\\right)^{\\frac{x-a}{2a}\\cdot\\frac{2ax}{x-a}}\\to e^{2a}$，由 $e^{2a}=e^{4}$ 得 $a=2$。",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "limit(((x+2)/(x-2))**x, x, oo)",
+        "expected": "exp(4)"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c03_0001",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch03"
+      ],
+      "scenario_tags": [
+        "catch_up"
+      ],
+      "chapter": "函数的连续性",
       "exam_hot": true,
       "difficulty": 2,
       "type": "fill",
-      "stem": "求 lim(x→0) sin(x)/x 的值。",
-      "answer": "1",
+      "stem": "设 $f(x)=\\begin{cases}\\dfrac{e^{x}-1}{x}, & x\\neq 0,\\\\ a, & x=0,\\end{cases}$ 在 $x=0$ 处连续，求 $a$。",
+      "answer": "$a=1$",
       "assumptions": [],
-      "error_tags": ["limit_misuse", "symbol_error"],
-      "verify_hint": { "expr": "limit(sin(x)/x, x, 0)", "expected": "1" },
-      "source": "自编样例",
-      "license_note": "答辩演示用"
+      "error_tags": [
+        "condition_omitted",
+        "concept_confusion"
+      ],
+      "verify_hint": {
+        "expr": "limit((exp(x)-1)/x, x, 0)",
+        "expected": "1"
+      },
+      "source": "自编·连续的定义",
+      "license_note": "自编改编"
     },
     {
-      "question_id": "math_q_002",
+      "question_id": "math_a1c03_0002",
       "subject": "math",
-      "knowledge_ids": ["math.derivative"],
-      "scenario_tags": ["catch_up"],
-      "chapter": "导数与微分",
-      "lecture_week": 5,
+      "knowledge_ids": [
+        "math.a1.ch03.kp01"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的连续性",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求函数 $f(x)=\\dfrac{x^{2}-1}{x^{2}-3x+2}$ 的间断点，并指出其类型。",
+      "answer": "间断点为 $x=1$ 与 $x=2$。因 $x^{2}-3x+2=(x-1)(x-2)$，约分得 $f(x)=\\dfrac{x+1}{x-2}\\ (x\\neq1)$，故 $\\lim\\limits_{x\\to1}f(x)=-2$，$x=1$ 是**可去间断点**；$\\lim\\limits_{x\\to2}f(x)=\\infty$，$x=2$ 是**无穷间断点**（第二类）。",
+      "assumptions": [],
+      "error_tags": [
+        "concept_confusion"
+      ],
+      "verify_hint": null,
+      "source": "自编·对齐教材第 3 章第 1 节",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c03_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch03.kp02"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的连续性",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "证明方程 $x^{3}+x-1=0$ 在区间 $(0,\\,1)$ 内有且仅有一个实根。",
+      "answer": "令 $f(x)=x^{3}+x-1$，$f$ 在 $[0,1]$ 上连续，且 $f(0)=-1<0$，$f(1)=1>0$。由零点定理，存在 $\\xi\\in(0,1)$ 使 $f(\\xi)=0$，即至少有一根。又 $f'(x)=3x^{2}+1>0$，故 $f$ 在 $[0,1]$ 上严格单调递增，根唯一。",
+      "assumptions": [],
+      "error_tags": [
+        "condition_omitted"
+      ],
+      "verify_hint": null,
+      "source": "自编·对齐教材第 3 章第 2 节",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c04_0001",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch04"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的导数和微分",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求 $y=x^{x}\\ (x>0)$ 的导数。",
+      "answer": "$y'=x^{x}(\\ln x+1)$",
+      "assumptions": [
+        "题干已声明 $x>0$；若未声明，需先讨论定义域，否则 $x^{x}$ 在负数处无定义"
+      ],
+      "error_tags": [
+        "formula_misuse",
+        "undefined_assumption"
+      ],
+      "verify_hint": {
+        "expr": "diff(x^x, x)",
+        "expected": "x^x*(log(x)+1)"
+      },
+      "source": "自编·幂指函数取对数求导",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c04_0002",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch04"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的导数和微分",
+      "exam_hot": true,
+      "difficulty": 4,
+      "type": "calc",
+      "stem": "求 $\\lim\\limits_{x\\to 0}\\dfrac{\\tan x-x}{x^{3}}$。",
+      "answer": "$\\dfrac{1}{3}$",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse",
+        "calculation_error"
+      ],
+      "verify_hint": {
+        "expr": "limit((tan(x)-x)/x^3, x, 0)",
+        "expected": "1/3"
+      },
+      "source": "自编·洛必达法则或泰勒展开",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c04_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch04"
+      ],
+      "scenario_tags": [
+        "catch_up"
+      ],
+      "chapter": "函数的导数和微分",
       "exam_hot": false,
       "difficulty": 3,
       "type": "fill",
-      "stem": "若未特别声明定义域，求 y=√x 在 x=0 处的导数（演示用：依赖单侧/定义域假设）。",
-      "answer": "不存在（或 +∞ 视定义）",
+      "stem": "求 $y=\\sqrt{x}$ 在 $x=0$ 处的导数。",
+      "answer": "不存在（右导数 $+\\infty$，左导数不存在，故 $x=0$ 处不可导）。",
       "assumptions": [],
-      "error_tags": ["undefined_assumption"],
+      "error_tags": [
+        "undefined_assumption",
+        "boundary_condition"
+      ],
       "verify_hint": null,
-      "source": "自编·缺假设样例",
-      "license_note": "答辩演示用·供结构化质疑"
+      "source": "自编·缺假设样例（题干未点明只讨论右邻域）",
+      "license_note": "自编改编·供结构化质疑演示"
+    },
+    {
+      "question_id": "math_a1c04_0004",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch04.kp05"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的导数和微分",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "对函数 $f(x)=x^{3}$ 在区间 $[0,\\,1]$ 上验证拉格朗日中值定理，并求出定理中的 $\\xi$。",
+      "answer": "$f$ 在 $[0,1]$ 上连续、在 $(0,1)$ 内可导，且 $\\dfrac{f(1)-f(0)}{1-0}=1$。由 $f'(x)=3x^{2}=1$ 得 $x=\\pm\\dfrac{\\sqrt3}{3}$，取落在 $(0,1)$ 内的一个，得 $\\xi=\\dfrac{\\sqrt3}{3}$。",
+      "assumptions": [],
+      "error_tags": [
+        "condition_omitted"
+      ],
+      "verify_hint": {
+        "expr": "Abs(diff(x**3, x).subs(x, sqrt(3)/3) - (1**3 - 0**3)/(1 - 0))",
+        "expected": "0"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c05_0001",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch05"
+      ],
+      "scenario_tags": [
+        "final_review",
+        "catch_up"
+      ],
+      "chapter": "导数与微分的应用举例",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求 $y=x^{3}-3x$ 的单调区间与极值。",
+      "answer": "增区间 $(-\\infty,-1)$ 与 $(1,+\\infty)$，减区间 $(-1,1)$；极大值 $y(-1)=2$，极小值 $y(1)=-2$。",
+      "assumptions": [],
+      "error_tags": [
+        "boundary_condition",
+        "sign_error"
+      ],
+      "verify_hint": {
+        "expr": "solve(diff(x^3-3*x, x))",
+        "expected": "-1, 1"
+      },
+      "source": "自编·一阶导数判号",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c05_0002",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch05.kp03"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "导数与微分的应用举例",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求曲线 $y=\\dfrac{x^{2}}{x-1}$ 的所有渐近线。",
+      "answer": "$y=\\dfrac{x^{2}}{x-1}=x+1+\\dfrac{1}{x-1}$。$x\\to1$ 时 $y\\to\\infty$，故有垂直渐近线 $x=1$；又 $\\lim\\limits_{x\\to\\infty}\\left[\\dfrac{x^{2}}{x-1}-(x+1)\\right]=\\lim\\limits_{x\\to\\infty}\\dfrac{1}{x-1}=0$，故有斜渐近线 $y=x+1$。无水平渐近线。",
+      "assumptions": [],
+      "error_tags": [
+        "solution_missing"
+      ],
+      "verify_hint": {
+        "expr": "limit(x**2/(x-1) - (x+1), x, oo)",
+        "expected": "0"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c05_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch05.kp04"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "导数与微分的应用举例",
+      "exam_hot": true,
+      "difficulty": 4,
+      "type": "calc",
+      "stem": "求曲线 $y=\\ln x$ 在点 $(1,\\,0)$ 处的曲率。",
+      "answer": "$y'=\\dfrac{1}{x}$，$y''=-\\dfrac{1}{x^{2}}$；在 $x=1$ 处 $y'=1$，$y''=-1$。由 $K=\\dfrac{|y''|}{(1+y'^{2})^{3/2}}$ 得 $K=\\dfrac{1}{2\\sqrt2}=\\dfrac{\\sqrt2}{4}$。",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "Abs(diff(log(x), x, 2).subs(x, 1))/(1 + diff(log(x), x).subs(x, 1)**2)**Rational(3, 2)",
+        "expected": "sqrt(2)/4"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c05_0004",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch05.kp04"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "导数与微分的应用举例",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "一个气球在充气过程中半径以 $2\\ \\mathrm{cm/s}$ 的速率增加。当半径为 $5\\ \\mathrm{cm}$ 时，求气球体积的增长速率。",
+      "answer": "$V=\\dfrac{4}{3}\\pi r^{3}$，由链式法则 $\\dfrac{\\mathrm{d}V}{\\mathrm{d}t}=4\\pi r^{2}\\dfrac{\\mathrm{d}r}{\\mathrm{d}t}$。代入 $r=5$、$\\dfrac{\\mathrm{d}r}{\\mathrm{d}t}=2$，得 $\\dfrac{\\mathrm{d}V}{\\mathrm{d}t}=200\\pi\\ \\mathrm{cm^{3}/s}\\approx 628\\ \\mathrm{cm^{3}/s}$。",
+      "assumptions": [],
+      "error_tags": [
+        "unit_dimension"
+      ],
+      "verify_hint": {
+        "expr": "4*pi*5**2*2",
+        "expected": "200*pi"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c06_0001",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch06"
+      ],
+      "scenario_tags": [
+        "catch_up"
+      ],
+      "chapter": "函数的积分",
+      "exam_hot": true,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "求 $\\displaystyle\\int x e^{x^{2}}\\,\\mathrm{d}x$。",
+      "answer": "$\\dfrac{1}{2}e^{x^{2}}+C$",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse",
+        "solution_missing"
+      ],
+      "verify_hint": {
+        "expr": "integrate(x*exp(x^2), x)",
+        "expected": "exp(x^2)/2"
+      },
+      "source": "自编·凑微分",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c06_0002",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch06"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的积分",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "计算 $\\displaystyle\\int_{0}^{\\pi/2}\\sin^{3}x\\,\\mathrm{d}x$。",
+      "answer": "$\\dfrac{2}{3}$",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse",
+        "calculation_error"
+      ],
+      "verify_hint": {
+        "expr": "integrate(sin(x)^3, x, 0, pi/2)",
+        "expected": "2/3"
+      },
+      "source": "自编·定积分换元",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c06_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch06.kp02"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的积分",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求 $\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\displaystyle\\int_{0}^{x^{2}}\\sin t\\,\\mathrm{d}t$。",
+      "answer": "$2x\\sin(x^{2})$。由变限积分求导公式与链式法则，$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\displaystyle\\int_{0}^{u}\\sin t\\,\\mathrm{d}t=\\sin u\\cdot u'$，其中 $u=x^{2}$，$u'=2x$。",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "diff(integrate(sin(t), (t, 0, x**2)), x)",
+        "expected": "2*x*sin(x**2)"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c06_0004",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch06.kp05"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "函数的积分",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "计算反常积分 $\\displaystyle\\int_{0}^{1}\\dfrac{\\mathrm{d}x}{\\sqrt{x}}$。",
+      "answer": "$2$。$x=0$ 是瑕点，$\\displaystyle\\int_{0}^{1}x^{-1/2}\\,\\mathrm{d}x=\\lim\\limits_{\\varepsilon\\to0^{+}}\\left[2\\sqrt{x}\\right]_{\\varepsilon}^{1}=2$，积分收敛。",
+      "assumptions": [],
+      "error_tags": [
+        "boundary_condition"
+      ],
+      "verify_hint": {
+        "expr": "integrate(x**(-Rational(1,2)), (x, 0, 1))",
+        "expected": "2"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c07_0001",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch07"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "定积分的应用举例",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求由曲线 $y=x^{2}$ 与直线 $y=x$ 所围成的平面图形的面积。",
+      "answer": "$\\dfrac{1}{6}$",
+      "assumptions": [],
+      "error_tags": [
+        "boundary_condition",
+        "calculation_error"
+      ],
+      "verify_hint": {
+        "expr": "integrate(x-x^2, x, 0, 1)",
+        "expected": "1/6"
+      },
+      "source": "自编·微元法求面积",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c07_0002",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch07.kp03"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "定积分的应用举例",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求曲线 $y=\\dfrac{2}{3}x^{3/2}$ 在 $0\\le x\\le 1$ 上的一段弧长。",
+      "answer": "$\\dfrac{2}{3}(2\\sqrt2-1)$。$y'=\\sqrt{x}$，$1+y'^{2}=1+x$，故 $s=\\displaystyle\\int_{0}^{1}\\sqrt{1+x}\\,\\mathrm{d}x=\\dfrac{2}{3}(1+x)^{3/2}\\Big|_{0}^{1}=\\dfrac{2}{3}(2\\sqrt2-1)$。",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "integrate(sqrt(1+x), (x, 0, 1))",
+        "expected": "(2/3)*(2*sqrt(2)-1)"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c07_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch07.kp04"
+      ],
+      "scenario_tags": [
+        "catch_up",
+        "final_review"
+      ],
+      "chapter": "定积分的应用举例",
+      "exam_hot": true,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "求由曲线 $y=x^{2}$、直线 $x=1$ 及 $x$ 轴所围成的平面图形绕 $x$ 轴旋转所得旋转体的体积。",
+      "answer": "$\\dfrac{\\pi}{5}$。$V=\\pi\\displaystyle\\int_{0}^{1}(x^{2})^{2}\\,\\mathrm{d}x=\\pi\\displaystyle\\int_{0}^{1}x^{4}\\,\\mathrm{d}x=\\dfrac{\\pi}{5}$。",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "pi*integrate(x**4, (x, 0, 1))",
+        "expected": "pi/5"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c07_0004",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch07.kp05"
+      ],
+      "scenario_tags": [
+        "catch_up",
+        "final_review"
+      ],
+      "chapter": "定积分的应用举例",
+      "exam_hot": true,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "一弹簧压缩 $x$ 米需力 $F=100x$（单位：N）。求把弹簧从自然长度压缩 $0.2\\ \\mathrm{m}$ 所作的功。",
+      "answer": "$2\\ \\mathrm{J}$。$W=\\displaystyle\\int_{0}^{0.2}100x\\,\\mathrm{d}x=50x^{2}\\Big|_{0}^{0.2}=50\\times0.04=2$。",
+      "assumptions": [],
+      "error_tags": [
+        "unit_dimension"
+      ],
+      "verify_hint": {
+        "expr": "integrate(100*x, (x, 0, Rational(1,5)))",
+        "expected": "2"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c08_0001",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch08"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "常微分方程",
+      "exam_hot": true,
+      "difficulty": 4,
+      "type": "calc",
+      "stem": "求微分方程 $y'+y=e^{-x}$ 满足 $y(0)=1$ 的特解。",
+      "answer": "$y=(x+1)e^{-x}$",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse",
+        "boundary_condition"
+      ],
+      "verify_hint": {
+        "expr": "dsolve(y' + y - exp(-x), y, 0, 1)",
+        "expected": "(x+1)*exp(-x)"
+      },
+      "source": "自编·一阶线性方程（常数变易/积分因子）",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c08_0002",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch08.kp03"
+      ],
+      "scenario_tags": [
+        "catch_up",
+        "final_review"
+      ],
+      "chapter": "常微分方程",
+      "exam_hot": true,
+      "difficulty": 2,
+      "type": "calc",
+      "stem": "求微分方程 $y''=6x$ 满足 $y(0)=1$、$y'(0)=0$ 的特解。",
+      "answer": "$y=x^{3}+1$。逐次积分：$y'=3x^{2}+C_1$，由 $y'(0)=0$ 得 $C_1=0$；再积分 $y=x^{3}+C_2$，由 $y(0)=1$ 得 $C_2=1$。",
+      "assumptions": [],
+      "error_tags": [
+        "boundary_condition"
+      ],
+      "verify_hint": {
+        "expr": "expand(diff(x**3 + 1, x, 2) - 6*x)",
+        "expected": "0"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c08_0003",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch08.kp05"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "常微分方程",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求微分方程 $y''-3y'+2y=0$ 的通解。",
+      "answer": "$y=C_1e^{x}+C_2e^{2x}$。特征方程 $r^{2}-3r+2=0$ 即 $(r-1)(r-2)=0$，特征根 $r_1=1$、$r_2=2$ 为相异实根。",
+      "assumptions": [],
+      "error_tags": [
+        "formula_misuse"
+      ],
+      "verify_hint": {
+        "expr": "simplify(diff(C1*exp(x) + C2*exp(2*x), x, 2) - 3*diff(C1*exp(x) + C2*exp(2*x), x) + 2*(C1*exp(x) + C2*exp(2*x)))",
+        "expected": "0"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
+    },
+    {
+      "question_id": "math_a1c08_0004",
+      "subject": "math",
+      "knowledge_ids": [
+        "math.a1.ch08.kp05"
+      ],
+      "scenario_tags": [
+        "final_review"
+      ],
+      "chapter": "常微分方程",
+      "exam_hot": true,
+      "difficulty": 3,
+      "type": "calc",
+      "stem": "求微分方程 $y''+4y=0$ 满足 $y(0)=1$、$y'(0)=2$ 的特解。",
+      "answer": "$y=\\cos 2x+\\sin 2x$。特征根 $r=\\pm2i$，通解 $y=C_1\\cos2x+C_2\\sin2x$；由 $y(0)=1$ 得 $C_1=1$；$y'=-2C_1\\sin2x+2C_2\\cos2x$，由 $y'(0)=2$ 得 $C_2=1$。",
+      "assumptions": [],
+      "error_tags": [
+        "boundary_condition"
+      ],
+      "verify_hint": {
+        "expr": "simplify(diff(cos(2*x) + sin(2*x), x, 2) + 4*(cos(2*x) + sin(2*x)))",
+        "expected": "0"
+      },
+      "source": "自编",
+      "license_note": "自编改编"
     }
-  ]
+  ],
+  "counts": {
+    "total": 30,
+    "by_chapter": {
+      "ch01": 3,
+      "ch02": 4,
+      "ch03": 3,
+      "ch04": 4,
+      "ch05": 4,
+      "ch06": 4,
+      "ch07": 4,
+      "ch08": 4
+    },
+    "with_verify_hint": 26
+  }
 }

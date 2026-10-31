@@ -1,36 +1,617 @@
 {
   "subject": "physics",
-  "title": "大学物理知识点大纲（初稿，按本校开课范围可改）",
+  "title": "大学物理（University Physics Ⅰ / A1）章级大纲",
+  "version": "2.1",
+  "verified": true,
+  "scope_note": "覆盖上册 A1：力学、振动与波动、波动光学、热学，共 64 学时。电磁学、相对论、量子属下册 A2，不在本文件。",
+  "basis": {
+    "type": "本校教学大纲",
+    "course_code": "GE03005",
+    "course_name": "University Physics Ⅰ（大学物理 A1）",
+    "college": "物理与微电子科学学院",
+    "credits": 4,
+    "hours": {
+      "total": 64,
+      "lecture": 48,
+      "discussion": 16
+    },
+    "semester": "第二学期",
+    "prerequisite_course": "高等数学",
+    "textbook": {
+      "title": "大学物理学（Ⅰ）",
+      "note": "正文页眉作「大学物理学（Ⅰ）」，共 3 篇 10 章；与教学大纲章号不完全一致，见 textbook_map"
+    },
+    "references": [
+      "《大学基础物理学》第3版，张三慧等，清华大学出版社，2010.7",
+      "《普通物理学》第6版，程守洙、江之永等，高等教育出版社，2010.5"
+    ],
+    "artifacts": [
+      "source/_原始下载/大物/00_大纲/教学大纲.doc —— 课程代码/学分/学时/10 章章名与学时分配",
+      "C:/Users/dongq/users/Downloads/大物1新版教材.pdf —— 目录页 PDF p1–p2（第 5–10 章及页码可读）"
+    ],
+    "obtained": "2026-10-31",
+    "note": "原件第八章后直接标为「第十章」，缺第九章编号，此处按顺序重编；原编号见 outline_no。教材目录第 1 页（第 1–4 章页码）在该 PDF 副本中为 CMYK 反相扫描，无法读取，故第 1–4 章的教材页码标记为 pending。"
+  },
+  "textbook_map": [
+    {
+      "outline_ch": 1,
+      "textbook_ch": 1,
+      "textbook_title": "质点运动学",
+      "note": "一致"
+    },
+    {
+      "outline_ch": 2,
+      "textbook_ch": 2,
+      "textbook_title": "(第1篇内，章名待补)",
+      "note": "编号一致，页码待补"
+    },
+    {
+      "outline_ch": 3,
+      "textbook_ch": 3,
+      "textbook_title": "(第1篇内，章名待补)",
+      "note": "编号一致，页码待补"
+    },
+    {
+      "outline_ch": 4,
+      "textbook_ch": 4,
+      "textbook_title": "振动与波动（合并为一章）",
+      "note": "教材把「振动」「波动」合成第 4 章；大纲拆为第 4、5 章"
+    },
+    {
+      "outline_ch": 5,
+      "textbook_ch": 4,
+      "textbook_title": "振动与波动（合并为一章）",
+      "note": "同上；4.3 波动的能量 p161 落在波动部分"
+    },
+    {
+      "outline_ch": 6,
+      "textbook_ch": 6,
+      "textbook_title": "光的干涉",
+      "note": "一致"
+    },
+    {
+      "outline_ch": 7,
+      "textbook_ch": 7,
+      "textbook_title": "光的衍射",
+      "note": "一致"
+    },
+    {
+      "outline_ch": 8,
+      "textbook_ch": 8,
+      "textbook_title": "光的偏振",
+      "note": "一致"
+    },
+    {
+      "outline_ch": 9,
+      "textbook_ch": 10,
+      "textbook_title": "微观热力学",
+      "note": "教材把微观（分子运动论）放在后，大纲放在前"
+    },
+    {
+      "outline_ch": 10,
+      "textbook_ch": 9,
+      "textbook_title": "宏观热力学",
+      "note": "教材把宏观热力学放在前，大纲放在后"
+    }
+  ],
+  "textbook_only": [
+    {
+      "textbook_ch": 5,
+      "textbook_title": "几何光学",
+      "page": 171,
+      "note": "教材有、64 学时大纲中没有：属自学/选读内容，不纳入 final_review 考点聚合"
+    }
+  ],
+  "counts": {
+    "chapters": 10,
+    "knowledge_points": 38
+  },
   "nodes": [
     {
-      "id": "phy.mech",
-      "name": "力学",
-      "children": ["phy.mech.kinematics", "phy.mech.dynamics", "phy.mech.energy"],
-      "prerequisites": []
+      "id": "phy.kinematics",
+      "name": "质点运动学",
+      "level": "chapter",
+      "no": 1,
+      "outline_no": "第一章",
+      "part": "力学",
+      "hours": {
+        "lecture": 4,
+        "discussion": 2,
+        "total": 6
+      },
+      "children": [
+        "phy.kinematics.kp01",
+        "phy.kinematics.kp02",
+        "phy.kinematics.kp03",
+        "phy.kinematics.kp04"
+      ],
+      "prerequisites": [],
+      "focus_note": "难点：切向/法向加速度；微积分在运动学两类问题中的应用",
+      "page_range": null,
+      "page_status": "partial",
+      "page_start": 3
     },
     {
-      "id": "phy.thermo",
-      "name": "热学",
-      "children": [],
-      "prerequisites": []
+      "id": "phy.kinematics.kp01",
+      "name": "质点模型、参考系与坐标系",
+      "level": "knowledge_point",
+      "parent": "phy.kinematics"
     },
     {
-      "id": "phy.em",
-      "name": "电磁学",
-      "children": ["phy.em.electrostatics", "phy.em.current", "phy.em.magnetism"],
-      "prerequisites": []
+      "id": "phy.kinematics.kp02",
+      "name": "位矢、位移、速度、加速度",
+      "level": "knowledge_point",
+      "parent": "phy.kinematics"
+    },
+    {
+      "id": "phy.kinematics.kp03",
+      "name": "切向加速度与法向加速度",
+      "level": "knowledge_point",
+      "parent": "phy.kinematics"
+    },
+    {
+      "id": "phy.kinematics.kp04",
+      "name": "角量与线量的关系、相对运动",
+      "level": "knowledge_point",
+      "parent": "phy.kinematics"
+    },
+    {
+      "id": "phy.dynamics",
+      "name": "质点力学的基本规律 守恒定律",
+      "level": "chapter",
+      "no": 2,
+      "outline_no": "第二章",
+      "part": "力学",
+      "hours": {
+        "lecture": 6,
+        "discussion": 2,
+        "total": 8
+      },
+      "children": [
+        "phy.dynamics.kp01",
+        "phy.dynamics.kp02",
+        "phy.dynamics.kp03",
+        "phy.dynamics.kp04",
+        "phy.dynamics.kp05"
+      ],
+      "prerequisites": [
+        "phy.kinematics"
+      ],
+      "focus_note": "难点：势能的引入与定义、非惯性系、变质量问题",
+      "page_range": null,
+      "page_status": "partial"
+    },
+    {
+      "id": "phy.dynamics.kp01",
+      "name": "牛顿三定律与动力学两类问题",
+      "level": "knowledge_point",
+      "parent": "phy.dynamics"
+    },
+    {
+      "id": "phy.dynamics.kp02",
+      "name": "动量定理与动量守恒定律",
+      "level": "knowledge_point",
+      "parent": "phy.dynamics"
+    },
+    {
+      "id": "phy.dynamics.kp03",
+      "name": "功、功率与动能定理",
+      "level": "knowledge_point",
+      "parent": "phy.dynamics"
+    },
+    {
+      "id": "phy.dynamics.kp04",
+      "name": "势能、功能原理与机械能守恒",
+      "level": "knowledge_point",
+      "parent": "phy.dynamics"
+    },
+    {
+      "id": "phy.dynamics.kp05",
+      "name": "角动量（动量矩）与角动量守恒",
+      "level": "knowledge_point",
+      "parent": "phy.dynamics"
+    },
+    {
+      "id": "phy.rigid",
+      "name": "刚体的定轴转动",
+      "level": "chapter",
+      "no": 3,
+      "outline_no": "第三章",
+      "part": "力学",
+      "hours": {
+        "lecture": 4,
+        "discussion": 2,
+        "total": 6
+      },
+      "children": [
+        "phy.rigid.kp01",
+        "phy.rigid.kp02",
+        "phy.rigid.kp03"
+      ],
+      "prerequisites": [
+        "phy.dynamics"
+      ],
+      "focus_note": "难点：含刚体的复杂力学系统、微积分在定轴转动中的应用",
+      "page_range": null,
+      "page_status": "partial"
+    },
+    {
+      "id": "phy.rigid.kp01",
+      "name": "力矩、转动惯量与转动定律",
+      "level": "knowledge_point",
+      "parent": "phy.rigid"
+    },
+    {
+      "id": "phy.rigid.kp02",
+      "name": "刚体动能、势能与机械能守恒",
+      "level": "knowledge_point",
+      "parent": "phy.rigid"
+    },
+    {
+      "id": "phy.rigid.kp03",
+      "name": "刚体角动量与角动量守恒",
+      "level": "knowledge_point",
+      "parent": "phy.rigid"
+    },
+    {
+      "id": "phy.vibration",
+      "name": "振动",
+      "level": "chapter",
+      "no": 4,
+      "outline_no": "第四章",
+      "part": "振动与波动",
+      "hours": {
+        "lecture": 4,
+        "discussion": 1,
+        "total": 5
+      },
+      "children": [
+        "phy.vibration.kp01",
+        "phy.vibration.kp02",
+        "phy.vibration.kp03",
+        "phy.vibration.kp04"
+      ],
+      "prerequisites": [
+        "phy.dynamics"
+      ],
+      "focus_note": "难点：阻尼振动、受迫振动、共振的数学分析",
+      "page_range": null,
+      "page_status": "partial"
+    },
+    {
+      "id": "phy.vibration.kp01",
+      "name": "简谐振动特征量与动力学分析",
+      "level": "knowledge_point",
+      "parent": "phy.vibration"
+    },
+    {
+      "id": "phy.vibration.kp02",
+      "name": "旋转矢量法",
+      "level": "knowledge_point",
+      "parent": "phy.vibration"
+    },
+    {
+      "id": "phy.vibration.kp03",
+      "name": "谐振动的能量",
+      "level": "knowledge_point",
+      "parent": "phy.vibration"
+    },
+    {
+      "id": "phy.vibration.kp04",
+      "name": "简谐振动的合成",
+      "level": "knowledge_point",
+      "parent": "phy.vibration"
     },
     {
       "id": "phy.wave",
-      "name": "振动与波动",
-      "children": [],
-      "prerequisites": ["phy.mech"]
+      "name": "波动",
+      "level": "chapter",
+      "no": 5,
+      "outline_no": "第五章",
+      "part": "振动与波动",
+      "hours": {
+        "lecture": 7,
+        "discussion": 2,
+        "total": 9
+      },
+      "children": [
+        "phy.wave.kp01",
+        "phy.wave.kp02",
+        "phy.wave.kp03",
+        "phy.wave.kp04",
+        "phy.wave.kp05"
+      ],
+      "prerequisites": [
+        "phy.vibration"
+      ],
+      "focus_note": "难点：质元动能与势能的模型、干涉理论、半波损失",
+      "page_range": null,
+      "page_status": "partial"
     },
     {
-      "id": "phy.optics",
-      "name": "光学",
-      "children": [],
-      "prerequisites": ["phy.wave"]
+      "id": "phy.wave.kp01",
+      "name": "平面简谐波函数及其物理意义",
+      "level": "knowledge_point",
+      "parent": "phy.wave"
+    },
+    {
+      "id": "phy.wave.kp02",
+      "name": "波的能量、能量密度与能流密度",
+      "level": "knowledge_point",
+      "parent": "phy.wave"
+    },
+    {
+      "id": "phy.wave.kp03",
+      "name": "相干波叠加：相位差与波程差判据",
+      "level": "knowledge_point",
+      "parent": "phy.wave"
+    },
+    {
+      "id": "phy.wave.kp04",
+      "name": "驻波及其形成条件",
+      "level": "knowledge_point",
+      "parent": "phy.wave"
+    },
+    {
+      "id": "phy.wave.kp05",
+      "name": "机械波的多普勒效应",
+      "level": "knowledge_point",
+      "parent": "phy.wave"
+    },
+    {
+      "id": "phy.interference",
+      "name": "光的干涉",
+      "level": "chapter",
+      "no": 6,
+      "outline_no": "第六章",
+      "part": "波动光学",
+      "hours": {
+        "lecture": 4,
+        "discussion": 1,
+        "total": 5
+      },
+      "children": [
+        "phy.interference.kp01",
+        "phy.interference.kp02",
+        "phy.interference.kp03"
+      ],
+      "prerequisites": [
+        "phy.wave"
+      ],
+      "focus_note": "难点：发光机理与相干光获得、等倾干涉成因",
+      "page_range": [
+        193,
+        220
+      ],
+      "page_status": "verified_toc"
+    },
+    {
+      "id": "phy.interference.kp01",
+      "name": "相干光的获得与杨氏双缝干涉",
+      "level": "knowledge_point",
+      "parent": "phy.interference"
+    },
+    {
+      "id": "phy.interference.kp02",
+      "name": "光程、等厚干涉（劈尖、牛顿环、增透增反膜）",
+      "level": "knowledge_point",
+      "parent": "phy.interference"
+    },
+    {
+      "id": "phy.interference.kp03",
+      "name": "等倾干涉与迈克耳逊干涉仪",
+      "level": "knowledge_point",
+      "parent": "phy.interference"
+    },
+    {
+      "id": "phy.diffraction",
+      "name": "光的衍射",
+      "level": "chapter",
+      "no": 7,
+      "outline_no": "第七章",
+      "part": "波动光学",
+      "hours": {
+        "lecture": 6,
+        "discussion": 2,
+        "total": 8
+      },
+      "children": [
+        "phy.diffraction.kp01",
+        "phy.diffraction.kp02",
+        "phy.diffraction.kp03"
+      ],
+      "prerequisites": [
+        "phy.interference"
+      ],
+      "focus_note": "难点：半波带方法、光栅缺级与暗纹分析",
+      "page_range": [
+        221,
+        250
+      ],
+      "page_status": "verified_toc"
+    },
+    {
+      "id": "phy.diffraction.kp01",
+      "name": "惠更斯-菲涅耳原理、单缝衍射与半波带法",
+      "level": "knowledge_point",
+      "parent": "phy.diffraction"
+    },
+    {
+      "id": "phy.diffraction.kp02",
+      "name": "光栅衍射与光栅方程（含缺级）",
+      "level": "knowledge_point",
+      "parent": "phy.diffraction"
+    },
+    {
+      "id": "phy.diffraction.kp03",
+      "name": "圆孔衍射、光学仪器分辨率与X射线衍射",
+      "level": "knowledge_point",
+      "parent": "phy.diffraction"
+    },
+    {
+      "id": "phy.polarization",
+      "name": "光的偏振",
+      "level": "chapter",
+      "no": 8,
+      "outline_no": "第八章",
+      "part": "波动光学",
+      "hours": {
+        "lecture": 2,
+        "discussion": 1,
+        "total": 3
+      },
+      "children": [
+        "phy.polarization.kp01",
+        "phy.polarization.kp02",
+        "phy.polarization.kp03"
+      ],
+      "prerequisites": [
+        "phy.interference"
+      ],
+      "focus_note": "难点：双折射的惠更斯理论、偏振光的干涉",
+      "page_range": [
+        251,
+        276
+      ],
+      "page_status": "verified_toc"
+    },
+    {
+      "id": "phy.polarization.kp01",
+      "name": "偏振态、起偏检偏与马吕斯定律",
+      "level": "knowledge_point",
+      "parent": "phy.polarization"
+    },
+    {
+      "id": "phy.polarization.kp02",
+      "name": "反射与折射偏振、布儒斯特定律",
+      "level": "knowledge_point",
+      "parent": "phy.polarization"
+    },
+    {
+      "id": "phy.polarization.kp03",
+      "name": "双折射与偏振光的干涉",
+      "level": "knowledge_point",
+      "parent": "phy.polarization"
+    },
+    {
+      "id": "phy.kinetic",
+      "name": "气体分子运动论",
+      "level": "chapter",
+      "no": 9,
+      "outline_no": "第十章（原文编号）",
+      "part": "热学",
+      "hours": {
+        "lecture": 5,
+        "discussion": 1,
+        "total": 6
+      },
+      "children": [
+        "phy.kinetic.kp01",
+        "phy.kinetic.kp02",
+        "phy.kinetic.kp03",
+        "phy.kinetic.kp04"
+      ],
+      "prerequisites": [],
+      "focus_note": "难点：统计假设与统计物理方法",
+      "page_range": [
+        304,
+        323
+      ],
+      "page_status": "verified_toc"
+    },
+    {
+      "id": "phy.kinetic.kp01",
+      "name": "平衡态、理想气体状态方程与统计假设",
+      "level": "knowledge_point",
+      "parent": "phy.kinetic"
+    },
+    {
+      "id": "phy.kinetic.kp02",
+      "name": "能量按自由度均分原理与理想气体内能",
+      "level": "knowledge_point",
+      "parent": "phy.kinetic"
+    },
+    {
+      "id": "phy.kinetic.kp03",
+      "name": "麦克斯韦速率分布与统计平均值",
+      "level": "knowledge_point",
+      "parent": "phy.kinetic"
+    },
+    {
+      "id": "phy.kinetic.kp04",
+      "name": "平均自由程与平均碰撞频率",
+      "level": "knowledge_point",
+      "parent": "phy.kinetic"
+    },
+    {
+      "id": "phy.thermo",
+      "name": "热力学基本原理",
+      "level": "chapter",
+      "no": 10,
+      "outline_no": "第十一章（原文编号）",
+      "part": "热学",
+      "hours": {
+        "lecture": 6,
+        "discussion": 2,
+        "total": 8
+      },
+      "children": [
+        "phy.thermo.kp01",
+        "phy.thermo.kp02",
+        "phy.thermo.kp03",
+        "phy.thermo.kp04"
+      ],
+      "prerequisites": [
+        "phy.kinetic"
+      ],
+      "focus_note": "难点：可逆与不可逆过程、第二定律的统计意义",
+      "page_range": [
+        277,
+        303
+      ],
+      "page_status": "verified_toc"
+    },
+    {
+      "id": "phy.thermo.kp01",
+      "name": "准静态过程与热力学第一定律",
+      "level": "knowledge_point",
+      "parent": "phy.thermo"
+    },
+    {
+      "id": "phy.thermo.kp02",
+      "name": "等值过程、热容与绝热过程",
+      "level": "knowledge_point",
+      "parent": "phy.thermo"
+    },
+    {
+      "id": "phy.thermo.kp03",
+      "name": "循环过程与循环效率（卡诺循环）",
+      "level": "knowledge_point",
+      "parent": "phy.thermo"
+    },
+    {
+      "id": "phy.thermo.kp04",
+      "name": "热力学第二定律及其统计意义、熵",
+      "level": "knowledge_point",
+      "parent": "phy.thermo"
     }
-  ]
+  ],
+  "scope": {
+    "volume": "上册《大学物理学（Ⅰ）》，第 1–10 章，课程代码 GE03005，64 学时",
+    "course": "大学物理 A1（第 2 学期）",
+    "excluded_volume": {
+      "name": "下册 A2（电磁学 / 近代物理）",
+      "chapters": [
+        "静电场",
+        "静电场中的导体与电介质",
+        "稳恒磁场",
+        "磁介质",
+        "电磁感应与电磁场",
+        "狭义相对论",
+        "量子物理"
+      ],
+      "material_mapping": "习题册第 11–17 章、课件 PDF 中的电磁学部分均属 A2，不进资料包",
+      "reason": "2026-10-31 范围收缩：本期只做第 1 学期两门课（大学数学 1 + 大物 1），A2 不采集、不建题"
+    }
+  }
 }
