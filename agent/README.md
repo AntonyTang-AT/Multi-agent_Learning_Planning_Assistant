@@ -5,7 +5,7 @@
 - 默认端口 **`8001`**
 - API Key **只放本服务**（`agent/.env` 或仓库根 `.env` 的 `DEEPSEEK_API_KEY`）
 - 职责：`docs/roles/03-多智能体.md` · 任务：`docs/五人详细任务计划.md`
-- I/O：`docs/agent-api.md`、`docs/技术路线与方案.md`
+- I/O：`docs/agent-api.md`、`docs/前后端联调接口说明.md`、`docs/技术路线与方案.md`
 
 ## 当前进度
 
