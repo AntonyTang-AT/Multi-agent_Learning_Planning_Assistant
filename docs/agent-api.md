@@ -15,7 +15,7 @@
 
 | intent | 说明 |
 |---|---|
-| `create_plan` | 生成计划草案并审计；冲突时返回 `conflict` + 黑板 + 三选项；支持 `demo.force_conflict` |
+| `create_plan` | 生成计划草案并审计；冲突时返回 `conflict` + 黑板 + 三选项；支持 `demo.force_conflict`；若 `input.error_tag` 有值则按错因策略表插入差异化任务，并可能附带 `challenge`/`intervention` 黑板条目 |
 | `arbitrate` | 用户裁决后重排/确认（`input.option_id` + `input.plan`） |
 | `generate_question` | 出题；优先 `resource_payload.sample_questions`；必须过 Verifier；失败重试后 `abstain`；支持 `demo.force_verify_fail` |
 | `verify_answer` | 校验；`output.verdict` + `audit_trail`；失败返回 `abstain`（不硬给错答） |
