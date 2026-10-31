@@ -36,7 +36,14 @@
 `POST /api/ai/{intent}`  
 
 Body 对齐 Agent 请求子集；响应为 Agent 响应，并已落库。  
-`intent` 见 `docs/agent-api.md`。
+
+**联调必读（3 号已冻结）：**
+
+- [`docs/前后端联调接口说明.md`](./前后端联调接口说明.md) — 网关职责、错误码、落库字段  
+- [`docs/agent-api.md`](./agent-api.md) — intent / 请求响应合同  
+- [`agent/examples/`](../agent/examples/) — 可拷贝 JSON  
+
+`intent` 白名单与字段以 `agent-api.md` 为准；网关禁止写智能分支。
 
 ## 演示
 

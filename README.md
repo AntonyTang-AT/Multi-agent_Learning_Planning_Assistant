@@ -54,6 +54,7 @@
 | 分人职责 | [`docs/roles/`](docs/roles/) |
 | 业务 API | [`docs/api.md`](docs/api.md) |
 | Agent I/O | [`docs/agent-api.md`](docs/agent-api.md) |
+| **前后端联调（先读）** | [`docs/前后端联调接口说明.md`](docs/前后端联调接口说明.md) |
 
 ---
 
