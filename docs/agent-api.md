@@ -20,9 +20,9 @@
 | `generate_question` | 出题；优先 `resource_payload.sample_questions`；必须过 Verifier；失败重试后 `abstain`；支持 `demo.force_verify_fail` |
 | `verify_answer` | 校验；`output.verdict` + `audit_trail`；失败返回 `abstain`（不硬给错答） |
 | `record_trace` | 轨迹侧轻量更新建议 |
-| `challenge` | 结构化质疑 |
-| `metacognitive_feedback` | 元认知卡片 |
-| `proactive_intervention` | 主动干预卡片 |
+| `challenge` | 结构化质疑（缺假设题 → `need_user` + challenge 黑板） |
+| `metacognitive_feedback` | 元认知复盘卡片（`output.card`） |
+| `proactive_intervention` | 主动干预卡片（`demo.time_jump_days` / 负荷信号） |
 | `echo` | **调试用回声**（A1；联调 schema，正式业务勿依赖） |
 
 未知 `intent`：HTTP `400`，`detail.code = unknown_intent`，并返回 `supported_intents` 列表。

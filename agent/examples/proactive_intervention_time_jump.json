@@ -1,0 +1,18 @@
+{
+  "request": {
+    "request_id": "req_interv_001",
+    "task_id": "task_interv_001",
+    "scenario": "catch_up",
+    "intent": "proactive_intervention",
+    "input": {},
+    "trace_snapshot": {
+      "load_signals": { "overload": false }
+    },
+    "demo": {
+      "force_conflict": false,
+      "force_verify_fail": false,
+      "time_jump_days": 3
+    }
+  },
+  "notes": "time_jump_days>=2 应触发 need_user + intervention 黑板与卡片。"
+}
