@@ -15,6 +15,7 @@
 | 路径 | 内容 | 生成方式 |
 |---|---|---|
 | `taxonomy/math_outline.json` · `physics_outline.json` | 大纲与知识点（18 章 / 78 知识点） | 人工核对教材目录页 |
+| `taxonomy/aliases.json` | **细粒度知识点 / 错因 → 3 号 Agent 粗 ID**（v1.0 对接合同） | 人工维护；2 号导入与组请求时读取 |
 | `intake/collection_list.csv` · `.docx` | **采集清单**：18 章逐章台账（课件/习题册/真题/目标题量/缺口） | `data/intake/build_intake.py` |
 | `materials/index.json` | 57 条素材元数据（18 章 × 教材/课件/习题册 + 3 条参考） | `scripts/build_materials.py` |
 | `questions/math_sample.json` · `physics_sample.json` | **30 + 15 道样例题**（高数每章 3–4 题，大物每章 1–3 题） | 人工编写，字段对齐 §三 |
@@ -24,6 +25,22 @@
 | `scripts/validate_schema.py` | 全量校验（大纲 / 题目 / materials / exams / 场景） | 手写 |
 
 > 三个 `build_*.py` / `tally_*.py` 都是**可复跑**的：改完源数据重跑即可，禁止手改生成物后再回填。
+
+## 与 3 号 Agent 合同（v1.0 必读）
+
+本包 taxonomy 使用**细粒度** ID（如 `math.a1.ch02.kp06`、`phy.dynamics.kp02`）。  
+3 号 Agent / `agent/examples` 与演示脚本仍使用**粗粒度**合同 ID（如 `math.limit`、`math.derivative`、`phy.mech`）。
+
+| 约定 | 说明 |
+|---|---|
+| 真相来源 | 题目上的 `knowledge_ids` **保持细粒度**（已冻结，不改） |
+| 映射表 | `taxonomy/aliases.json`：`prefix_rules` / `exact` / `error_tag_to_agent` |
+| 后端职责 | 导入后按 aliases 解析；`GET ?knowledge_id=math.limit` 应命中所有映射到该粗 ID 的题，**不能**假定细 ID 字符串等于粗 ID |
+| 组 Agent 请求 | `resource_refs[].id` 用粗 ID；`resource_payload.sample_questions` 带原题（含细 `knowledge_ids` 与 `verify_hint`） |
+| 错因 | 资料词表见 §四；能否触发 Agent 特化策略以 `error_tag_to_agent` 为准（`null` = 仅展示） |
+| 已知缺口 | 无 `difficulty=5`；大物 `verify_hint` 少于高数——答辩用 d3–d4 + Demo 开关即可 |
+
+**不要**为迁就 Agent 把大纲改回只有 `math.limit`；**不要**在未读 aliases 的情况下宣称「题库与 Agent 已同源」。
 
 ## 导入前检查
 
@@ -253,3 +270,4 @@ issue #24 的「舒适区目标，可按计划微调但需说明」即指此，�
 | v0.4 | 2026-10-31 | **范围收缩到第 1 学期**：高数只留《大学数学 1》上册（`nodes` 15→**8 章**、78→**40 知识点**），大物维持《大学物理学（Ⅰ）》1–10 章；两个 outline 升 v2.1 并新增顶层 `scope` / `scope.excluded_volume`（下册 7 章、A2 七章）；README 增「素材 ↔ 章节 ID 映射」（高数课件旧版章号错位、大物习题册 11–17 章弃用） |
 | v0.5 | 2026-10-31 | **数据包补齐到可交付**：新增 `intake/collection_list`（18 章台账）、`materials/index.json`（57 条元数据）、`questions/physics_sample.json`（14 题）、高数样例题扩到 12 题、`exams/index.json`（58 份真题台账）、`exams/exam_hot_{physics,math}.json`（脚本统计，非人工标注）、`catch_up/`+`final_review/` 按章聚合；校验器扩到 materials/exams/exam_hot/场景四类；新增 4 个可复跑脚本 |
 | **v1.0** | **2026-10-31** | **题量达舒适区并冻结**：高数 12→**30 题**（8 章全覆盖，每章 3–4 题，新增 18 题答案经数值复核）、大物维持 15 题，合计 **45 题**；新增 §六「题量与冻结」，`question_id` 与十五个字段契约冻结；**修复 `build_indexes.py` 知识点冒充章节的 bug**（曾把 `catch_up` 统计成 20 章，实为 16 章），`validate_schema.py` 增加「场景 `chapter_id` 必须是章级节点」的检查并反向验证可拦截；`physics_sample.json` 由 14 订正为 15 |
+| v1.0.1 | 2026-11-01 | **对接补丁（不改题 ID）**：新增 `taxonomy/aliases.json`（细→粗知识点 + 错因→Agent 策略）；README 增「与 3 号 Agent 合同」；供 2 号后端适配导入/组请求 |

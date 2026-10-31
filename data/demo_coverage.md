@@ -1,7 +1,8 @@
 # 演示覆盖对照清单（4 号 → 3 号）
 
 > 本文件**不是数据**，是给 3 号做「验收覆盖点对表」用的一张表（issue #24 要求）。
-> 数据本体在 `questions/` `materials/` `exams/`，版本 **v1.0，2026-10-31 冻结**。
+> 数据本体在 `questions/` `materials/` `exams/`，版本 **v1.0，2026-10-31 冻结**（v1.0.1 仅增 aliases，不改题 ID）。
+> **与 Agent 粗 ID 对照**：见 `taxonomy/aliases.json` 与 README「与 3 号 Agent 合同」。
 > 用法：把本文件连同 `questions/*.json` 一起发给 3 号，逐条打勾。
 
 ## 一、总量
