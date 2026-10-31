@@ -1,0 +1,723 @@
+{
+  "version": "1.0",
+  "scope": "大学数学 1（上册 8 章）+ 大物 1（第 1–10 章）",
+  "rule": "只登记元数据与页码定位，不转载正文；路径相对 source/_原始下载/",
+  "counts": {
+    "items": 57,
+    "chapters": 18,
+    "by_kind": {
+      "textbook": 18,
+      "courseware": 18,
+      "homework": 18,
+      "answer_book": 2,
+      "textbook_reference": 1
+    }
+  },
+  "items": [
+    {
+      "material_id": "mat_math_a1_ch01_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch01",
+      "kind": "textbook",
+      "title": "教材 集合与函数",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        1,
+        27
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch01_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch01",
+      "kind": "courseware",
+      "title": "课件 集合与函数",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第1章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_math_a1_ch01_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch01",
+      "kind": "homework",
+      "title": "习题册 集合与函数（含解答）",
+      "file": "高数/02_习题册/综合题一  集合与函数.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch02_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch02",
+      "kind": "textbook",
+      "title": "教材 极限",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        28,
+        74
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch02_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch02",
+      "kind": "courseware",
+      "title": "课件 极限",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第2章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_math_a1_ch02_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch02",
+      "kind": "homework",
+      "title": "习题册 极限（含解答）",
+      "file": "高数/02_习题册/综合题二  极限.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch03_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch03",
+      "kind": "textbook",
+      "title": "教材 函数的连续性",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        75,
+        91
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch03_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch03",
+      "kind": "courseware",
+      "title": "课件 函数的连续性",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第3章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_math_a1_ch03_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch03",
+      "kind": "homework",
+      "title": "习题册 函数的连续性（含解答）",
+      "file": "高数/02_习题册/综合题三  函数的连续性.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch04_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch04",
+      "kind": "textbook",
+      "title": "教材 函数的导数和微分",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        92,
+        150
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch04_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch04",
+      "kind": "courseware",
+      "title": "课件 函数的导数和微分",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第4章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_math_a1_ch04_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch04",
+      "kind": "homework",
+      "title": "习题册 函数的导数和微分（含解答）",
+      "file": "高数/02_习题册/综合题四   函数的导数与微分.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch05_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch05",
+      "kind": "textbook",
+      "title": "教材 导数与微分的应用举例",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        151,
+        183
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch05_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch05",
+      "kind": "courseware",
+      "title": "课件 导数与微分的应用举例",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第5章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_math_a1_ch05_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch05",
+      "kind": "homework",
+      "title": "习题册 导数与微分的应用举例（含解答）",
+      "file": "高数/02_习题册/综合题五  导数与微分的应用举例.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch06_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch06",
+      "kind": "textbook",
+      "title": "教材 函数的积分",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        184,
+        249
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch06_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch06",
+      "kind": "courseware",
+      "title": "课件 函数的积分",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第6章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_math_a1_ch06_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch06",
+      "kind": "homework",
+      "title": "习题册 函数的积分（含解答）",
+      "file": "高数/02_习题册/综合题六  函数的积分.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch07_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch07",
+      "kind": "textbook",
+      "title": "教材 定积分的应用举例",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        250,
+        276
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch07_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch07",
+      "kind": "courseware",
+      "title": "课件 定积分的应用举例",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第7章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_math_a1_ch07_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch07",
+      "kind": "homework",
+      "title": "习题册 定积分的应用举例（含解答）",
+      "file": "高数/02_习题册/综合题七  定积分的应用举例.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch08_textbook",
+      "subject": "math",
+      "chapter_id": "math.a1.ch08",
+      "kind": "textbook",
+      "title": "教材 常微分方程",
+      "file": "高数/00_教材/HNU大学数学1 第3版.pdf",
+      "page_range": [
+        277,
+        327
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch08_courseware",
+      "subject": "math",
+      "chapter_id": "math.a1.ch08",
+      "kind": "courseware",
+      "title": "课件 常微分方程",
+      "file": "高数/01_课件/湖南大学《高等数学》课件（第9章）.pptx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": "课件为第二版编号「第9章 常微分方程」，对应第三版 ch8"
+    },
+    {
+      "material_id": "mat_math_a1_ch08_homework",
+      "subject": "math",
+      "chapter_id": "math.a1.ch08",
+      "kind": "homework",
+      "title": "习题册 常微分方程（含解答）",
+      "file": "高数/02_习题册/综合题八  常微分方程.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_kinematics_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.kinematics",
+      "kind": "textbook",
+      "title": "教材 质点运动学",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": null,
+      "page_status": "partial",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_kinematics_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.kinematics",
+      "kind": "courseware",
+      "title": "课件 质点运动学",
+      "file": "大物/02_课件/运动学.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_kinematics_homework",
+      "subject": "physics",
+      "chapter_id": "phy.kinematics",
+      "kind": "homework",
+      "title": "习题册 质点运动学（含解答）",
+      "file": "大物/03_习题册/1章运动学习题含解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_dynamics_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.dynamics",
+      "kind": "textbook",
+      "title": "教材 质点力学的基本规律 守恒定律",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": null,
+      "page_status": "partial",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_dynamics_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.dynamics",
+      "kind": "courseware",
+      "title": "课件 质点力学的基本规律 守恒定律",
+      "file": "大物/02_课件/质点力学.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_dynamics_homework",
+      "subject": "physics",
+      "chapter_id": "phy.dynamics",
+      "kind": "homework",
+      "title": "习题册 质点力学的基本规律 守恒定律（含解答）",
+      "file": "大物/03_习题册/2章质点动力学习题含解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_rigid_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.rigid",
+      "kind": "textbook",
+      "title": "教材 刚体的定轴转动",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": null,
+      "page_status": "partial",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_rigid_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.rigid",
+      "kind": "courseware",
+      "title": "课件 刚体的定轴转动",
+      "file": "大物/02_课件/刚体.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_rigid_homework",
+      "subject": "physics",
+      "chapter_id": "phy.rigid",
+      "kind": "homework",
+      "title": "习题册 刚体的定轴转动（含解答）",
+      "file": "大物/03_习题册/3章刚体 习题含解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_vibration_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.vibration",
+      "kind": "textbook",
+      "title": "教材 振动",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": null,
+      "page_status": "partial",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_vibration_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.vibration",
+      "kind": "courseware",
+      "title": "课件 振动",
+      "file": "大物/02_课件/振动.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_vibration_homework",
+      "subject": "physics",
+      "chapter_id": "phy.vibration",
+      "kind": "homework",
+      "title": "习题册 振动（含解答）",
+      "file": "大物/03_习题册/4章 振动 练习题含解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_wave_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.wave",
+      "kind": "textbook",
+      "title": "教材 波动",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": null,
+      "page_status": "partial",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_wave_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.wave",
+      "kind": "courseware",
+      "title": "课件 波动",
+      "file": "大物/02_课件/波动.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_wave_homework",
+      "subject": "physics",
+      "chapter_id": "phy.wave",
+      "kind": "homework",
+      "title": "习题册 波动（含解答）",
+      "file": "大物/03_习题册/5章 波动 练习题含答案.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_interference_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.interference",
+      "kind": "textbook",
+      "title": "教材 光的干涉",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": [
+        193,
+        220
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_interference_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.interference",
+      "kind": "courseware",
+      "title": "课件 光的干涉",
+      "file": "大物/02_课件/干涉.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_interference_homework",
+      "subject": "physics",
+      "chapter_id": "phy.interference",
+      "kind": "homework",
+      "title": "习题册 光的干涉（含解答）",
+      "file": "大物/03_习题册/6章光的干涉-练习题及解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_diffraction_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.diffraction",
+      "kind": "textbook",
+      "title": "教材 光的衍射",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": [
+        221,
+        250
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_diffraction_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.diffraction",
+      "kind": "courseware",
+      "title": "课件 光的衍射",
+      "file": "大物/02_课件/衍射.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_diffraction_homework",
+      "subject": "physics",
+      "chapter_id": "phy.diffraction",
+      "kind": "homework",
+      "title": "习题册 光的衍射（含解答）",
+      "file": "大物/03_习题册/7章光的衍射-习题及解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_polarization_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.polarization",
+      "kind": "textbook",
+      "title": "教材 光的偏振",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": [
+        251,
+        276
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_polarization_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.polarization",
+      "kind": "courseware",
+      "title": "课件 光的偏振",
+      "file": "大物/02_课件/光的偏振.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_polarization_homework",
+      "subject": "physics",
+      "chapter_id": "phy.polarization",
+      "kind": "homework",
+      "title": "习题册 光的偏振（含解答）",
+      "file": "大物/03_习题册/8章光的偏振-习题及解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_kinetic_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.kinetic",
+      "kind": "textbook",
+      "title": "教材 气体分子运动论",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": [
+        304,
+        323
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_kinetic_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.kinetic",
+      "kind": "courseware",
+      "title": "课件 气体分子运动论",
+      "file": "大物/02_课件/微观热学.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_kinetic_homework",
+      "subject": "physics",
+      "chapter_id": "phy.kinetic",
+      "kind": "homework",
+      "title": "习题册 气体分子运动论（含解答）",
+      "file": "大物/03_习题册/9章 气体分子运动论 练习题含解答.docx",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_thermo_textbook",
+      "subject": "physics",
+      "chapter_id": "phy.thermo",
+      "kind": "textbook",
+      "title": "教材 热力学基本原理",
+      "file": "大物/01_教材/大物1新版教材.pdf",
+      "page_range": [
+        277,
+        303
+      ],
+      "page_status": "verified_toc",
+      "license_note": "校内教学使用·仅登记元数据与页码，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_phy_thermo_courseware",
+      "subject": "physics",
+      "chapter_id": "phy.thermo",
+      "kind": "courseware",
+      "title": "课件 热力学基本原理",
+      "file": "大物/02_课件/宏观热学.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": null
+    },
+    {
+      "material_id": "mat_phy_thermo_homework",
+      "subject": "physics",
+      "chapter_id": "phy.thermo",
+      "kind": "homework",
+      "title": "习题册 热力学基本原理（含解答）",
+      "file": "大物/03_习题册/10热力学基本原理-练习题含解答.doc",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded"
+    },
+    {
+      "material_id": "mat_math_a1_ch01_answer_book",
+      "subject": "math",
+      "chapter_id": "math.a1.ch01",
+      "kind": "answer_book",
+      "title": "高等数学（上）习题册答案",
+      "file": "高数/02_习题册/高等数学（上）习题册答案.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": "全册习题答案，用于扩题与自测；按章定位需人工翻"
+    },
+    {
+      "material_id": "mat_math_general_textbook_reference",
+      "subject": "math",
+      "chapter_id": null,
+      "kind": "textbook_reference",
+      "title": "《大学数学 1》第 4 版（易学军 等）",
+      "file": "高数/00_教材/大学数学 1 第4版 (易学军 朱郁森 袁朝晖).pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": "版本核对用参考，不作为页码依据（页码依据为第 3 版）"
+    },
+    {
+      "material_id": "mat_physics_general_answer_book",
+      "subject": "physics",
+      "chapter_id": null,
+      "kind": "answer_book",
+      "title": "大学物理学上册课后答案（陈曙光）",
+      "file": "大物/01_教材/大学物理学上册课后答案(陈曙光) 密码为690568392.pdf",
+      "page_range": null,
+      "license_note": "校内教学使用·仅登记元数据，不转载正文",
+      "status": "downloaded",
+      "note": "教材课后题答案，扩题来源"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "scenario": "catch_up",
+  "version": "1.0",
+  "aggregate_by": "chapter",
+  "note": "按章聚合（原按周次，因缺教务进度表改按章，见 data/README.md §2.4）",
+  "counts": {
+    "chapters": 16,
+    "questions": 21
+  },
+  "chapters": [
+    {
+      "chapter_id": "math.a1.ch01",
+      "no": 1,
+      "name": "集合与函数",
+      "question_count": 3,
+      "hot_count": 0,
+      "questions": [
+        {
+          "question_id": "math_a1c01_0001",
+          "difficulty": 2,
+          "type": "fill",
+          "exam_hot": false
+        },
+        {
+          "question_id": "math_a1c01_0002",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": false
+        },
+        {
+          "question_id": "math_a1c01_0003",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": false
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.kinematics",
+      "no": 1,
+      "name": "质点运动学",
+      "question_count": 2,
+      "hot_count": 2,
+      "questions": [
+        {
+          "question_id": "phy_kin_0002",
+          "difficulty": 3,
+          "type": "calc",
+          "exam_hot": true
+        },
+        {
+          "question_id": "phy_kin_0001",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "math.a1.ch02",
+      "no": 2,
+      "name": "极限",
+      "question_count": 2,
+      "hot_count": 2,
+      "questions": [
+        {
+          "question_id": "math_a1c02_0003",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": true
+        },
+        {
+          "question_id": "math_a1c02_0001",
+          "difficulty": 1,
+          "type": "fill",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.dynamics",
+      "no": 2,
+      "name": "质点力学的基本规律 守恒定律",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "phy_dyn_0001",
+          "difficulty": 1,
+          "type": "calc",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "math.a1.ch03",
+      "no": 3,
+      "name": "函数的连续性",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "math_a1c03_0001",
+          "difficulty": 2,
+          "type": "fill",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "math.a1.ch04",
+      "no": 4,
+      "name": "函数的导数和微分",
+      "question_count": 1,
+      "hot_count": 0,
+      "questions": [
+        {
+          "question_id": "math_a1c04_0003",
+          "difficulty": 3,
+          "type": "fill",
+          "exam_hot": false
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.vibration",
+      "no": 4,
+      "name": "振动",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "phy_vib_0001",
+          "difficulty": 2,
+          "type": "fill",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "math.a1.ch05",
+      "no": 5,
+      "name": "导数与微分的应用举例",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "math_a1c05_0001",
+          "difficulty": 3,
+          "type": "calc",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.wave",
+      "no": 5,
+      "name": "波动",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "phy_wave_0001",
+          "difficulty": 2,
+          "type": "fill",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "math.a1.ch06",
+      "no": 6,
+      "name": "函数的积分",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "math_a1c06_0001",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "math.a1.ch07",
+      "no": 7,
+      "name": "定积分的应用举例",
+      "question_count": 2,
+      "hot_count": 2,
+      "questions": [
+        {
+          "question_id": "math_a1c07_0003",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": true
+        },
+        {
+          "question_id": "math_a1c07_0004",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.diffraction",
+      "no": 7,
+      "name": "光的衍射",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "phy_dif_0001",
+          "difficulty": 2,
+          "type": "fill",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "math.a1.ch08",
+      "no": 8,
+      "name": "常微分方程",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "math_a1c08_0002",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.polarization",
+      "no": 8,
+      "name": "光的偏振",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "phy_pol_0001",
+          "difficulty": 2,
+          "type": "fill",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.kinetic",
+      "no": 9,
+      "name": "气体分子运动论",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "phy_kinetic_0001",
+          "difficulty": 2,
+          "type": "calc",
+          "exam_hot": true
+        }
+      ]
+    },
+    {
+      "chapter_id": "phy.thermo",
+      "no": 10,
+      "name": "热力学基本原理",
+      "question_count": 1,
+      "hot_count": 1,
+      "questions": [
+        {
+          "question_id": "phy_thermo_0001",
+          "difficulty": 1,
+          "type": "fill",
+          "exam_hot": true
+        }
+      ]
+    }
+  ]
+}

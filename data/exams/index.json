@@ -1,0 +1,595 @@
+{
+  "version": "1.0",
+  "scope": "大物 A1 期末 2012–2023（48 份）+ 高数 A1 期末 16–24 级（9 份）",
+  "rule": "只登记台账与是否可抽文字，不转载题目正文；题面引用以 exams 目录原件为准",
+  "counts": {
+    "total": 58,
+    "text_extracted": 28,
+    "by_subject": {
+      "math": 10,
+      "physics": 48
+    }
+  },
+  "items": [
+    {
+      "exam_id": "exam_physics_2012_000",
+      "subject": "physics",
+      "year": "2012",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2012/2012—2013大学物理A(1)期末试卷2份(含答案).pdf",
+      "text_extracted": true,
+      "text_chars": 22306,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2012_001",
+      "subject": "physics",
+      "year": "2012",
+      "kind": "paper_doc",
+      "file": "_原始下载/大物/04_真题/2012/2012前大学物理1试卷1.docx",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2012_002",
+      "subject": "physics",
+      "year": "2012",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2012/2012期末.pdf",
+      "text_extracted": true,
+      "text_chars": 6633,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2012_003",
+      "subject": "physics",
+      "year": "2012",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2012/2012期末答案 .pdf",
+      "text_extracted": true,
+      "text_chars": 3722,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2013_004",
+      "subject": "physics",
+      "year": "2013",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2013/2013普通物理A1期末试卷.pdf",
+      "text_extracted": true,
+      "text_chars": 6964,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2013_005",
+      "subject": "physics",
+      "year": "2013",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2013/2013期末.pdf",
+      "text_extracted": true,
+      "text_chars": 6399,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2013_006",
+      "subject": "physics",
+      "year": "2013",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2013/2013期末答案.pdf",
+      "text_extracted": true,
+      "text_chars": 3780,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2014_007",
+      "subject": "physics",
+      "year": "2014",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2014/2014期末.pdf",
+      "text_extracted": true,
+      "text_chars": 6926,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2014_008",
+      "subject": "physics",
+      "year": "2014",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2014/2014期末答案.pdf",
+      "text_extracted": true,
+      "text_chars": 4206,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2015_009",
+      "subject": "physics",
+      "year": "2015",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2015/2015期末.pdf",
+      "text_extracted": true,
+      "text_chars": 6466,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2015_010",
+      "subject": "physics",
+      "year": "2015",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2015/2015期末答案.pdf",
+      "text_extracted": true,
+      "text_chars": 4127,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2016_011",
+      "subject": "physics",
+      "year": "2016",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2016/2016期末.pdf",
+      "text_extracted": true,
+      "text_chars": 6284,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2016_012",
+      "subject": "physics",
+      "year": "2016",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2016/2016期末2.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2016_013",
+      "subject": "physics",
+      "year": "2016",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2016/2016期末2答案.doc",
+      "text_extracted": true,
+      "text_chars": 2908,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2016_014",
+      "subject": "physics",
+      "year": "2016",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2016/2016期末答案.pdf",
+      "text_extracted": true,
+      "text_chars": 4544,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2017_015",
+      "subject": "physics",
+      "year": "2017",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2017/2017春-普通物理A（1）期末评分参考.pdf",
+      "text_extracted": true,
+      "text_chars": 2589,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2017_016",
+      "subject": "physics",
+      "year": "2017",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2017/2017春-普通物理A（1）期末试卷.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2017_017",
+      "subject": "physics",
+      "year": "2017",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2017/2017期末.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2017_018",
+      "subject": "physics",
+      "year": "2017",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2017/2017期末答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2018_019",
+      "subject": "physics",
+      "year": "2018",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2018/2018 物理 A1 参考答案.pdf",
+      "text_extracted": true,
+      "text_chars": 1955,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2018_020",
+      "subject": "physics",
+      "year": "2018",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2018/2018A1.pdf",
+      "text_extracted": true,
+      "text_chars": 4906,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2018_021",
+      "subject": "physics",
+      "year": "2018",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2018/2018春-普通物理A（1）期末评分参考.pdf",
+      "text_extracted": true,
+      "text_chars": 2096,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2018_022",
+      "subject": "physics",
+      "year": "2018",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2018/2018春-普通物理A（1）期末试卷.pdf",
+      "text_extracted": true,
+      "text_chars": 5489,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2018_023",
+      "subject": "physics",
+      "year": "2018",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2018/2018期末.pdf",
+      "text_extracted": true,
+      "text_chars": 5553,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2018_024",
+      "subject": "physics",
+      "year": "2018",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2018/2018期末答案.pdf",
+      "text_extracted": true,
+      "text_chars": 2335,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2019_025",
+      "subject": "physics",
+      "year": "2019",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2019/2019 A1.pdf",
+      "text_extracted": false,
+      "text_chars": 23,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2019_026",
+      "subject": "physics",
+      "year": "2019",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2019/2019A1答案.pdf",
+      "text_extracted": true,
+      "text_chars": 2789,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2019_027",
+      "subject": "physics",
+      "year": "2019",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2019/2019春-普通物理A（1）期末评分参考.pdf",
+      "text_extracted": true,
+      "text_chars": 2936,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2019_028",
+      "subject": "physics",
+      "year": "2019",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2019/2019春-普通物理A（1）期末试卷.pdf",
+      "text_extracted": true,
+      "text_chars": 5374,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2019_029",
+      "subject": "physics",
+      "year": "2019",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2019/2019期末.pdf",
+      "text_extracted": false,
+      "text_chars": 27,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2019_030",
+      "subject": "physics",
+      "year": "2019",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2019/2019期末答案.pdf",
+      "text_extracted": true,
+      "text_chars": 2936,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2020_031",
+      "subject": "physics",
+      "year": "2020",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2020/2020  A(1)期末评分参考（2020.9）.pdf",
+      "text_extracted": true,
+      "text_chars": 2777,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2020_032",
+      "subject": "physics",
+      "year": "2020",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2020/2020A1.pdf",
+      "text_extracted": false,
+      "text_chars": 15,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2020_033",
+      "subject": "physics",
+      "year": "2020",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2020/2020春-普通物理A（1）期末评分参考.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2020_034",
+      "subject": "physics",
+      "year": "2020",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2020/2020春-普通物理A（1）期末试卷.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2020_035",
+      "subject": "physics",
+      "year": "2020",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2020/普通物理2020春-评分参考.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2020_036",
+      "subject": "physics",
+      "year": "2020",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2020/普通物理A1-2020试卷.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_unknown_037",
+      "subject": "physics",
+      "year": null,
+      "kind": "paper_photo",
+      "file": "_原始下载/大物/04_真题/2021/1.jpg",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_unknown_038",
+      "subject": "physics",
+      "year": null,
+      "kind": "paper_photo",
+      "file": "_原始下载/大物/04_真题/2021/2.jpg",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2021_039",
+      "subject": "physics",
+      "year": "2021",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2021/2021春-普通物理A（1）期末评分参考.pdf",
+      "text_extracted": true,
+      "text_chars": 2199,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2021_040",
+      "subject": "physics",
+      "year": "2021",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2021/2021春-普通物理A（1）期末试卷.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_unknown_041",
+      "subject": "physics",
+      "year": null,
+      "kind": "paper_photo",
+      "file": "_原始下载/大物/04_真题/2021/3.jpg",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_unknown_042",
+      "subject": "physics",
+      "year": null,
+      "kind": "paper_photo",
+      "file": "_原始下载/大物/04_真题/2021/4.jpg",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2022_043",
+      "subject": "physics",
+      "year": "2022",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2022/2022春-普通物理A（1）期末评分参考.pdf",
+      "text_extracted": true,
+      "text_chars": 1913,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2022_044",
+      "subject": "physics",
+      "year": "2022",
+      "kind": "paper",
+      "file": "_原始下载/大物/04_真题/2022/2022春-普通物理A（1）期末试卷.pdf",
+      "text_extracted": true,
+      "text_chars": 6093,
+      "note": null
+    },
+    {
+      "exam_id": "exam_physics_2022_045",
+      "subject": "physics",
+      "year": "2022",
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2022/统1-湖南普通物理A（1）-评分参考2022春.doc",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_2022_046",
+      "subject": "physics",
+      "year": "2022",
+      "kind": "paper_doc",
+      "file": "_原始下载/大物/04_真题/2022/统1-湖南普通物理A（1）-试卷纸2022春.doc",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_physics_unknown_047",
+      "subject": "physics",
+      "year": null,
+      "kind": "answer",
+      "file": "_原始下载/大物/04_真题/2023/普物A1-试卷纸23春期末统1-含答案.doc",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2024_048",
+      "subject": "math",
+      "year": "2024",
+      "kind": "paper",
+      "file": "_原始下载/高数/03_真题/期末试卷合集-高等数学A1（书写版，2017-2024级）.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2016_049",
+      "subject": "math",
+      "year": "2016",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-16级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2017_050",
+      "subject": "math",
+      "year": "2017",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-17级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2018_051",
+      "subject": "math",
+      "year": "2018",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-18级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2019_052",
+      "subject": "math",
+      "year": "2019",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-19级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2020_053",
+      "subject": "math",
+      "year": "2020",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-20级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2021_054",
+      "subject": "math",
+      "year": "2021",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-21级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2022_055",
+      "subject": "math",
+      "year": "2022",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-22级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2023_056",
+      "subject": "math",
+      "year": "2023",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-23级-期末参考答案.pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    },
+    {
+      "exam_id": "exam_math_2024_057",
+      "subject": "math",
+      "year": "2024",
+      "kind": "answer",
+      "file": "_原始下载/高数/03_真题/高数A1-24级-期末参考答案(合并).pdf",
+      "text_extracted": false,
+      "text_chars": 0,
+      "note": "无文字层（扫描件/照片）或未抽取"
+    }
+  ]
+}
