@@ -4,11 +4,13 @@ from __future__ import annotations
 
 from typing import Any
 
-from app.blackboard.entries import conflict_entry
+from app.blackboard.entries import conflict_entry, from_error_strategy
 from app.rules.constraints import parse_daily_minutes, parse_days_left, parse_subject
+from app.rules.error_strategy import build_remediation_task, get_strategy
 from app.rules.plan_audit import audit_plan
 from app.schemas.request import AgentRequest, Scenario
-from app.schemas.response import AgentResponse, ResponseStatus, UserOption
+from app.schemas.response import AgentResponse, BlackboardEntry, ResponseStatus, UserOption
+from app.workers.memory import extract_error_tag, primary_knowledge, strategy_payload
 
 DEFAULT_USER_OPTIONS = [
     UserOption(id="extend_time", label="延长每日学习时间"),
@@ -42,6 +44,66 @@ def _base_minutes(scenario: Scenario, daily_minutes: int) -> int:
     return min(50, max(25, int(daily_minutes * 0.7)))
 
 
+def _renumber_days(tasks: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    for i, t in enumerate(tasks):
+        t["day"] = i + 1
+    return tasks
+
+
+def _apply_error_strategy(
+    req: AgentRequest,
+    plan: dict[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any] | None, BlackboardEntry | None]:
+    error_tag = extract_error_tag(req)
+    if not error_tag:
+        return plan, None, None
+
+    strategy = get_strategy(error_tag)
+    if not strategy:
+        meta = {
+            "error_tag": error_tag,
+            "known": False,
+            "message": f"未知错因 {error_tag}，未插入特化策略",
+        }
+        return plan, meta, None
+
+    kid, label = primary_knowledge(req)
+    subject = parse_subject(req.user_profile.constraints.hard)
+    task = build_remediation_task(
+        error_tag=error_tag,
+        knowledge_id=kid,
+        label=label,
+        subject=subject,
+        day=1,
+    )
+    assert task is not None
+
+    tasks = list(plan.get("tasks") or [])
+    insert = strategy.get("insert", "front")
+    if insert == "after_first" and tasks:
+        tasks = [tasks[0], task, *tasks[1:]]
+    else:
+        tasks = [task, *tasks]
+    plan["tasks"] = _renumber_days(tasks)
+    plan["error_driven"] = True
+
+    meta = strategy_payload(error_tag, strategy)
+    meta["known"] = True
+    meta["inserted_task"] = {
+        "action": task["action"],
+        "object": task["object"],
+        "strategy_id": task["strategy_id"],
+    }
+
+    bb = from_error_strategy(
+        entry_id=f"bb_{req.request_id}_{strategy['blackboard_type']}",
+        blackboard_type=str(strategy["blackboard_type"]),
+        summary=str(strategy["summary_template"]).format(label=label),
+        evidence_refs=[f"error_tag#{error_tag}", f"knowledge#{kid}"],
+    )
+    return plan, meta, bb
+
+
 def build_plan_draft(req: AgentRequest) -> dict[str, Any]:
     hard = req.user_profile.constraints.hard
     daily = parse_daily_minutes(hard)
@@ -51,7 +113,6 @@ def build_plan_draft(req: AgentRequest) -> dict[str, Any]:
     minutes = _base_minutes(req.scenario, daily)
 
     tasks: list[dict[str, Any]] = []
-    # 覆盖前若干天；不足天数则循环知识点
     span = min(days_left, max(3, len(topics) + 1))
     for i in range(span):
         day = i + 1
@@ -66,7 +127,6 @@ def build_plan_draft(req: AgentRequest) -> dict[str, Any]:
             load = "medium" if minutes <= 45 else "high"
 
         task_minutes = minutes
-        # 若预算很紧，仍用模板分钟，交给 audit 暴露冲突；force 时再抬高第3天
         if req.demo.force_conflict and day == 3:
             task_minutes = max(daily + 15, minutes + 20)
 
@@ -85,7 +145,8 @@ def build_plan_draft(req: AgentRequest) -> dict[str, Any]:
 
     return {
         "scenario": req.scenario.value,
-        "goal": req.input.get("goal") or ("跟课补漏" if req.scenario == Scenario.catch_up else "期末复习"),
+        "goal": req.input.get("goal")
+        or ("跟课补漏" if req.scenario == Scenario.catch_up else "期末复习"),
         "daily_minutes_budget": daily,
         "days_left": days_left,
         "tasks": tasks,
@@ -96,21 +157,35 @@ def handle_create_plan(req: AgentRequest) -> AgentResponse:
     hard = req.user_profile.constraints.hard
     daily = parse_daily_minutes(hard)
     plan = build_plan_draft(req)
+    plan, error_meta, error_bb = _apply_error_strategy(req, plan)
     audit = audit_plan(plan, daily_minutes=daily, force_conflict=req.demo.force_conflict)
+
+    extra_bb: list[BlackboardEntry] = []
+    if error_bb is not None:
+        extra_bb.append(error_bb)
+
+    output: dict[str, Any] = {"plan": plan}
+    if error_meta is not None:
+        output["error_strategy"] = error_meta
 
     if audit.ok:
         return AgentResponse(
             request_id=req.request_id,
             task_id=req.task_id,
             status=ResponseStatus.ok,
-            message="计划草案已通过审计",
-            output={"plan": plan},
+            message=(
+                f"计划草案已通过审计；已按错因 {error_meta['error_tag']} 插入策略"
+                if error_meta and error_meta.get("known")
+                else "计划草案已通过审计"
+            ),
+            output=output,
+            blackboard_entries=extra_bb,
             requires_approval=True,
         )
 
     primary = audit.primary
     assert primary is not None
-    entry = conflict_entry(
+    conflict_bb = conflict_entry(
         entry_id=f"bb_{req.request_id}_conflict",
         summary=primary.summary,
         evidence_refs=primary.evidence_refs,
@@ -120,8 +195,8 @@ def handle_create_plan(req: AgentRequest) -> AgentResponse:
         task_id=req.task_id,
         status=ResponseStatus.conflict,
         message=primary.summary,
-        output={"plan": plan, "audit_issues": [i.__dict__ for i in audit.issues]},
-        blackboard_entries=[entry],
+        output={**output, "audit_issues": [i.__dict__ for i in audit.issues]},
+        blackboard_entries=[conflict_bb, *extra_bb],
         user_options=list(DEFAULT_USER_OPTIONS),
         requires_approval=True,
     )

@@ -1,0 +1,25 @@
+{
+  "request": {
+    "request_id": "req_err_limit",
+    "task_id": "task_err_limit",
+    "scenario": "final_review",
+    "intent": "create_plan",
+    "user_profile": {
+      "user_id": "u_demo",
+      "constraints": {
+        "hard": ["daily_minutes<=120", "subject=math"],
+        "soft": []
+      }
+    },
+    "input": {
+      "goal": "期末过线",
+      "days_left": 5,
+      "error_tag": "limit_misuse"
+    },
+    "resource_refs": [
+      { "type": "knowledge", "id": "math.limit", "label": "极限与连续" }
+    ],
+    "demo": { "force_conflict": false }
+  },
+  "notes": "应插入「回顾概念」块，黑板 type=challenge；与 symbol_error 示例对比策略差异。"
+}
