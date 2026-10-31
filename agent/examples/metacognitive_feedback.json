@@ -1,0 +1,17 @@
+{
+  "request": {
+    "request_id": "req_meta_001",
+    "task_id": "task_meta_001",
+    "scenario": "final_review",
+    "intent": "metacognitive_feedback",
+    "input": {
+      "topic": "极限与连续",
+      "error_tag": "limit_misuse"
+    },
+    "resource_refs": [
+      { "type": "knowledge", "id": "math.limit", "label": "极限与连续" }
+    ],
+    "demo": {}
+  },
+  "notes": "应返回 status=ok 与 output.card（元认知复盘）。"
+}

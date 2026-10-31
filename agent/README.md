@@ -13,7 +13,7 @@
 - [x] A2 `create_plan` 规则审计冲突 + `user_options` + `arbitrate`
 - [x] A3 `generate_question` / `verify_answer` + 校验失败弃答（`force_verify_fail`）
 - [x] A4 错因策略差异（`input.error_tag`）+ 黑板 challenge/intervention
-- [ ] A5 演示用例固化 / 质疑增强
+- [x] A5 三必演一键脚本 + challenge / 元认知 / 主动干预（未引入 CrewAI，I/O 不变）
 
 ## 启动
 
@@ -48,6 +48,17 @@ curl -X POST http://localhost:8001/agent/v1/invoke ^
 cd agent
 pytest -q
 ```
+
+## 答辩三必演（一键）
+
+在 `agent/` 目录：
+
+```bash
+python -m app.demos.run_three_must
+python -m app.demos.run_three_must --with-enhancements
+```
+
+覆盖：冲突协商 → 校验弃答 → 错因差异；（增强）质疑 / 元认知 / 时间跳跃干预。
 
 ## 目录
 

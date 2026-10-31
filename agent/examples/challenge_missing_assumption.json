@@ -1,0 +1,20 @@
+{
+  "request": {
+    "request_id": "req_challenge_001",
+    "task_id": "task_challenge_001",
+    "scenario": "catch_up",
+    "intent": "challenge",
+    "input": {
+      "question": {
+        "question_id": "math_q_002",
+        "stem": "若未特别声明定义域，求 y=√x 在 x=0 处的导数（演示用：依赖单侧/定义域假设）。",
+        "answer": "不存在（或 +∞ 视定义）",
+        "assumptions": [],
+        "knowledge_ids": ["math.derivative"],
+        "error_tags": ["undefined_assumption"]
+      }
+    },
+    "demo": {}
+  },
+  "notes": "缺假设样例应对接 4 号题；应返回 need_user + challenge 黑板。"
+}
